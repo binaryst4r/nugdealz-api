@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  fine_print: MyText
+  point_value: 1
+  quantity_available: 1
+  dispensary_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  fine_print: MyText
+  point_value: 1
+  quantity_available: 1
+  dispensary_id: 1

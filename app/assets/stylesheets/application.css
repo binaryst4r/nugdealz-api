@@ -1,0 +1,42 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ 
+#get-started-user{	
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#get-started-user h2, #get-started-dispensary h2{
+	font-size: 70px;
+}
+
+#get-started-dispensary{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.light-green{
+	color: #B8E986 !important;	
+}
+
+.green{
+	color: #7ED321 !important;
+}
+
+.pink{
+	color: #E56D9A !important;
+}
