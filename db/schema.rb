@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428063356) do
+ActiveRecord::Schema.define(version: 20150429080857) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.text     "fine_print"
-    t.integer  "point_value"
     t.integer  "quantity_available"
     t.integer  "dispensary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "in_store_price"
   end
 
   create_table "dispensaries", force: true do |t|

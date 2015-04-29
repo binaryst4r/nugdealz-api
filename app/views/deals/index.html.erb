@@ -1,2 +1,46 @@
-<h1>Deals#index</h1>
-<p>Find me in app/views/deals/index.html.erb</p>
+<div class='container-fluid'>
+	<div id='dispensary-header'>
+		<div class='row'>
+			<center>
+				<h1 id='dispensary-title'><%= @dispensary.name %></h1>
+				
+					<address>					  
+					  <%= @dispensary.address1 %><br>
+					  <% if @dispensary.address2 %>
+					  	<%= @dispensary.address2 %><br>
+					  <% end %>
+					  <%= @dispensary.city %>, <%= @dispensary.state %> <%= @dispensary.zip %>					  
+					</address>
+
+					<%= link_to 'View Deals', '#deals', class: 'btn btn-clear-white' %>
+				
+			</center>
+		</div>
+	</div>
+
+</div>
+
+<div id='deals' class='container'>
+	<div class='row'>
+		<div class='col-md-8 col-md-offset-2 left-right-border-light-green'>			
+			<% @dispensary.deals.each do |deal| %>
+				<div class='row border-bottom-light-green padding-top'>
+					<h3 class='text-center green'><%= deal.title %></h3>
+					<div class='col-md-2 text-center'>
+						<p><span class='point-value'><%= deal.point_value %></span>
+							<br>
+							points
+						</p>
+					</div>
+					<div class='col-md-8'>
+						<p class='lead'><%= deal.description %> <b>(<%= deal.quantity_available %> left)</b></p>
+					</div>
+
+					<div class='col-md-2'>
+						<%= link_to 'Redeem', '#', class: 'btn btn-pink btn-block' %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

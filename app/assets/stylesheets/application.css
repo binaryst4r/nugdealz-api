@@ -14,6 +14,47 @@
  *= require_self
  */
 
+ .point-value{
+ 	font-size: 48px;
+ 	color: #4a4a4a;
+ 	line-height: 1em;
+
+ }
+
+ .btn-clear-white{
+ 	background: rgba(255,255,255, 0.79);
+ 	border: 2px solid #7ED321;
+ 	color: #7ED321;
+ 	border-radius: 4px;
+ 	font-size: 18px;
+ 	padding: 10px 30px;
+ }
+
+ .btn-pink{
+ 	background-color: #E56D9A; 
+ 	color: #f6f6f6;
+ 	border-radius: 4px;
+ }
+
+ .btn-green{
+ 	background-color: #7ED321; 
+ 	color: #f6f6f6;
+ 	border-radius: 4px;
+ }
+
+
+
+ #dispensary-header .row{
+ 	background: url('the-weed-2.jpg')no-repeat center center;
+ 	height: 415px;
+ 	padding-top: 10%;
+ 	border-bottom: 1px solid #B8e986;
+ }
+
+ #dispensary-header{
+ 	margin-top: -22px;
+ }
+
  
 #get-started-user{	
 	padding-top: 50px;
@@ -39,4 +80,17 @@
 
 .pink{
 	color: #E56D9A !important;
+}
+
+.padding-top{
+	padding-top: 40px;
+}
+
+.border-bottom-light-green{
+	border-bottom: 1px solid #B8e986;
+}
+
+.left-right-border-light-green{
+	border-left: 1px solid #B8e986;
+	border-right: 1px solid #B8e986;
 }

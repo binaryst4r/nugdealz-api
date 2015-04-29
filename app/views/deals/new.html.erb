@@ -1,2 +1,40 @@
-<h1>Deals#new</h1>
-<p>Find me in app/views/deals/new.html.erb</p>
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-6'>			
+			<h3>Create a Deal</h3>
+			<p class='lead'>Some information about creating a deal. Maybe to help these poor people out damnnn.</p>
+		</div>
+		<div class='col-md-5 col-md-offset-1'>
+
+			<%= form_for [@dispensary, @deal] do |f| %>
+			<%= f.hidden_field :dispensary_id, value: @dispensary.id %>
+				<div class='form-group'>
+					<%= f.label :title %><br>
+					<%= f.text_field :title, class: 'form-control' %>
+				</div>
+
+				<div class='form-group'>
+					<%= f.label :description %><br>
+					<%= f.text_field :description, class: 'form-control' %>
+				</div>
+
+				<div class='form-group'>
+					<%= f.label :fine_print %><br>
+					<%= f.text_field :fine_print, class: 'form-control' %>
+				</div>
+
+				<div class='form-group'>
+					<%= f.label :in_store_price %><br>
+					<%= f.number_field :in_store_price, class: 'form-control' %>
+				</div>
+
+				<div class='form-group'>
+					<%= f.label :quantity_available %><br>
+					<%= f.number_field :quantity_available, class: 'form-control' %>
+				</div>
+
+				<%= f.submit 'Save', class: 'btn btn-success' %>
+			<% end %>
+		</div>
+	</div>
+</div>
