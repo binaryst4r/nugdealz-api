@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   	if resource.class == 'Dispensary'
   		dispensary_url
   	end
-  	
+
   end
+  
 end

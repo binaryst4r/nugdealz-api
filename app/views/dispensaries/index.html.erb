@@ -1,0 +1,7 @@
+<div class='container'>
+  <div class='row'>
+      <% @dispensaries.each do |d| %>
+        <li><%= link_to d.name, dispensary_deals_url(d) %></li>
+      <% end %>
+  </div>
+</div>

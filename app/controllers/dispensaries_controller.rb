@@ -4,11 +4,11 @@ class DispensariesController < ApplicationController
 	end
 
 	def edit
-		
+
 	end
 
 	def index
-		
+		@dispensaries = Dispensary.all
 	end
-	
+
 end
