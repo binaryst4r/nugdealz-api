@@ -12,6 +12,14 @@
 
   <%= render '/layouts/nav' %>
 
+  <% if notice %>
+    <div class="container">
+      <div class="col-md-12 alert alert-info">
+        <%= notice %>
+      </div>
+    </div>
+  <% end %>
+
 	<%= yield %>
 
 

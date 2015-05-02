@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   resources :dispensaries do
     resources :deals
   end
+
+  resources :dispensary_applications
+
+  
 end

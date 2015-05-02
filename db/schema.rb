@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430180924) do
+ActiveRecord::Schema.define(version: 20150502172819) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20150430180924) do
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
   add_index "dispensaries", ["reset_password_token"], name: "index_dispensaries_on_reset_password_token", unique: true
 
+  create_table "dispensary_applications", force: true do |t|
+    t.string   "dispensary_name"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "phone"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "redemptions", force: true do |t|
     t.integer  "user_id"
     t.integer  "deal_id"
@@ -57,12 +71,12 @@ ActiveRecord::Schema.define(version: 20150430180924) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -71,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150430180924) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

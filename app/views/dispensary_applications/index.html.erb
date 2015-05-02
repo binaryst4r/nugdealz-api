@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="col-md-12">
+    <h2>Viewing Dispensary Applications</h2>
+
+    <table class='table table-hover'>
+
+      <th>
+        Dispensary Name
+      </th>
+
+      <th>
+        Contact Email
+      </th>
+
+      <th>
+        Contact Name
+      </th>
+
+      <th>
+        Phone
+      </th>
+
+      <th>
+        Address
+      </th>
+
+      <th>
+        Status
+      </th>
+
+      <tbody>
+        <% @dispensary_applications.each do |d| %>
+          <tr>
+            <td>
+              <%= d.dispensary_name %>
+            </td>
+
+            <td>
+              <%= d.contact_email %>
+            </td>
+
+            <td>
+              <%= d.contact_name %>
+            </td>
+
+            <td>
+              <%= d.phone %>
+            </td>
+
+            <td>
+              <%= d.address %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

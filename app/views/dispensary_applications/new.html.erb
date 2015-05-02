@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Market on the only site that pays you!</h2>
+      <p class='lead'>
+        We need some copy here that describes how awesome nugdealz is for dispensaries and why they sohuld use it, etc etc.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <%= form_for @dispensary_application do |f| %>
+        <div class="form-group col-md-12">
+          <%= f.label :dispensary_name %><br>
+          <%= f.text_field :dispensary_name, class: 'form-control', placeholder: 'enter dispensary name' %>
+        </div>
+
+        <div class="form-group col-md-6">
+          <%= f.label :contact_name %><br>
+          <%= f.text_field :contact_name, class: 'form-control', placeholder: "contact's name" %>
+        </div>
+
+        <div class="form-group col-md-6">
+          <%= f.label :contact_email %><br>
+          <%= f.email_field :contact_email, class: 'form-control', placeholder: "contact's email" %>
+        </div>
+
+        <div class="form-group col-md-12">
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone, class: 'form-control', placeholder: 'phone number' %>
+        </div>
+
+        <div class="form-group col-md-12">
+          <%= f.label :address1 %><br>
+          <%= f.text_field :address1, class: 'form-control', placeholder: 'i.e. 420 marley st' %>
+        </div>
+
+        <div class="form-group col-md-12">
+          <%= f.label :address2, "Unit Number, Suite, etc" %><br>
+          <%= f.text_field :address2, class: 'form-control', placeholder: 'i.e. suite j' %>
+        </div>
+
+        <div class="form-group col-md-6">
+          <%= f.label :city %><br>
+          <%= f.text_field :city, class: 'form-control', placeholder: 'city' %>
+        </div>
+
+        <div class="form-group col-md-3">
+          <%= f.label :state %><br>
+          <%= f.select :state, options_for_select(us_states), class: 'form-control'  %>
+        </div>
+
+        <div class="form-group col-md-3">
+          <%= f.label :zip %><br>
+          <%= f.text_field :zip, class: 'form-control', placeholder: 'zip' %>
+        </div>
+
+        <div class="col-md-12">
+
+        <%= f.submit 'Submit', class: 'btn btn-block btn-pink btn-lg' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
