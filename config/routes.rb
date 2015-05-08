@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   resources :dispensary_applications
 
-  
+
+
 end

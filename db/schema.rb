@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502172819) do
+ActiveRecord::Schema.define(version: 20150508063405) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 20150502172819) do
     t.integer  "dispensary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "in_store_price"
+    t.float    "price"
+    t.boolean  "medical"
+    t.boolean  "recreational"
   end
 
   create_table "dispensaries", force: true do |t|
@@ -43,6 +45,10 @@ ActiveRecord::Schema.define(version: 20150502172819) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "recreational"
+    t.boolean  "medical"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
@@ -60,6 +66,8 @@ ActiveRecord::Schema.define(version: 20150502172819) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "medical"
+    t.boolean  "recreational"
   end
 
   create_table "redemptions", force: true do |t|

@@ -37,11 +37,11 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.require(:deal).permit(:title, :description, :fine_print, :quantity_available, :in_store_price, :dispensary_id)
+    params.require(:deal).permit(:title, :description, :fine_print, :quantity_available, :price, :dispensary_id, :recreational, :medical)
   end
 
   # def set_dispensary
-      
+
   # end
 
 end

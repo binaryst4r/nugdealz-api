@@ -32,6 +32,9 @@
         <% @dispensary_applications.each do |d| %>
           <tr>
             <td>
+              <%= link_to 'try me', new_dispensary_registration_url(dispensary_application: d.id) %>
+            </td>
+            <td>
               <%= d.dispensary_name %>
             </td>
 

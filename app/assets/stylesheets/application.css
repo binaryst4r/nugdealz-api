@@ -17,7 +17,7 @@
  #confirm-deal{
    border: 3px dashed #474747;
    border-radius: 10px;
-   padding-bottom: 20px; 
+   padding-bottom: 20px;
  }
 
  .point-value{
@@ -94,6 +94,14 @@
 
 .border-bottom-light-green{
 	border-bottom: 1px solid #B8e986;
+}
+
+.border-left-light-green{
+	border-left: 1px solid #B8e986;
+}
+
+.border-right-light-green{
+	border-right: 1px solid #B8e986;
 }
 
 .left-right-border-light-green{

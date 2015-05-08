@@ -1,8 +1,13 @@
 class Deal < ActiveRecord::Base
 	belongs_to :dispensary
 
+	scope :recreational, -> {where(recreational: true)}
+	scope :medical, -> {where(medical: true)}
+	
 	def point_value
-		in_store_price / 10	
+		(price * 4.20).round(0)
 	end
+
+
 
 end

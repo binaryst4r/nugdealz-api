@@ -21,26 +21,9 @@
 </div>
 
 <div id='deals' class='container'>
-	<div class='row'>
-		<div class='col-md-8 col-md-offset-2 left-right-border-light-green'>
-			<% @dispensary.deals.each do |deal| %>
-				<div class='row border-bottom-light-green padding-top'>
-					<h3 class='text-center green'><%= deal.title %></h3>
-					<div class='col-md-2 text-center'>
-						<p><span class='point-value'><%= deal.point_value %></span>
-							<br>
-							points
-						</p>
-					</div>
-					<div class='col-md-8'>
-						<p class='lead'><%= deal.description %> <b>(<%= deal.quantity_available %> left)</b></p>
-					</div>
-
-					<div class='col-md-2'>
-						<%= link_to 'Redeem', confirm_deal_url(deal: deal.id), class: 'btn btn-pink btn-block' %>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
+	<% if @dispensary.recreational && @dispensary.medical %>
+		<%= render 'hybrid' %>
+	<% else %>
+		<%= render 'single' %>
+	<% end %>
 </div>

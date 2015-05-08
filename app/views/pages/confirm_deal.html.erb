@@ -7,17 +7,16 @@
           <b><%= @deal.title %></b><br>
           <%= @deal.description %>
         </p>
+      <h2 class='green'>
+
+        <%= number_to_currency(@deal.price) %>
+      </h2>
       </center>
 
-      <p>
+      <!-- <p>
         <span class='pull-left'>What you will pay at dispensary</span>
-        <span class='pull-right'><%= @deal.in_store_price %></span>
-      </p>
-      <br>
-      <h2 class='green'>
-        <span class='pull-left'>What you owe now</span>
-        <span class='pull-right'>$0.99</span>
-      </h2>
+        <span class='pull-right'><%= @deal.price %></span>
+      </p> -->
 
     </div>
     <div class='col-md-4 col-md-offset-1'>
