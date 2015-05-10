@@ -1,7 +1,42 @@
 <div class='container'>
   <div class='row'>
-      <% @dispensaries.each do |d| %>
-        <li><%= link_to d.name, dispensary_deals_url(d) %></li>
+    <div class='col-md-4' id="search-column">
+      <div class="col-md-12">
+        <h2>Search Again</h2>
+      </div>
+      <%= form_tag dispensaries_url, method: 'get' do %>
+      <div class="col-md-9">
+        <div class="form-group">
+          <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'search...' %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <%= submit_tag 'Search', class: 'btn btn-green' %>
+      </div>
       <% end %>
+    </div>
+
+    <div class="col-md-8 border-left-light-green" id='search-results'>
+      <div class="row">
+        <div class="col-md-12">
+          <b>Filter: <%= link_to 'Recreational', link_to  %></b>
+          <h3>Dispensaries matching search: <span class='pink'>"<%= @search %>"</span></h3>
+        </div>
+      </div>
+      <% @dispensaries.each do |d| %>
+        <div class="row border-bottom-light-green">
+          <div class="col-md-12">
+            <h3>
+              <%= link_to d.name, dispensary_deals_url(d), class: 'pink' %>
+            </h3>
+            <p>
+            <% d.deals.each do |deal| %>
+              <span data-toggle="tooltip" data-placement="top" title='<%= deal.description %>' class='badge'><%= deal.title %></span>
+            <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

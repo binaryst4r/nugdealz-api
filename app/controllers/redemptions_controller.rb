@@ -18,6 +18,6 @@ class RedemptionsController < ApplicationController
   private
 
   def redemption_params
-    params.require(:redemption).permit(:user_id, :deal_id)
+    params.require(:redemption).permit(:user_id, :deal_id, :redeemed)
   end
 end

@@ -1,19 +1,28 @@
 <div class="container">
   <div class="row border-bottom-light-green">
     <div class="col-md-4">
-      <h2><%= @user.full_name %></h2>
+      <h2>
+        <%= @user.full_name %><br>
+        <small><%= @user.email %></small>
+      </h2>
+      <%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_user_url(@user), class: 'btn btn-xs btn-warning' %>
     </div>
 
     <div class="col-md-8 border-left-light-green">
       <h3>Favorite Dispensaries</h3>
       <br>
       <% @user.favorite_dispensaries.each do |d| %>
-        <p class='lead pink'>
-          <%= d.name %> - <%= @user.loyalty_points_for(d).round %> loyalty points
-        </p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @user.loyalty_points_for(d) %>" aria-valuemin="0" aria-valuemax="420" style="width: <%= @user.point_progress_for(d) %>%">
+      <div class="col-md-10">
+        <span class='lead pink'>
+          <%= link_to d.name, dispensary_deals_url(d), class: 'pink' %>
+        </span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="<%= @user.loyalty_points_for(d) %>" aria-valuemin="0" aria-valuemax="420" style="width: <%= @user.point_progress_for(d) %>%">
+          </div>
         </div>
+      </div>
+      <div class="col-md-2">
+        <p class='progress-bar-points pink'><%= @user.loyalty_points_for(d).round %> <i class='fa fa-fire'></i></p>
       </div>
       <% end %>
     </div>
@@ -35,7 +44,7 @@
         </th>
         <th>
           Status
-        </th>        
+        </th>
 
         <tbody>
           <% @user.redemptions.each do |r| %>
@@ -44,13 +53,17 @@
                 #<%= r.id %>
               </td>
               <td>
-                <%= r.dispensary.name %>
+                <%= link_to r.dispensary.name, dispensary_deals_url(r.dispensary) %>
               </td>
               <td>
                 <%= r.deal.description %>
               </td>
               <td>
-
+                <% if r.redeemed %>
+                  <span class='green'>Redeemed!</span>
+                <% else %>
+                  <span class='text-danger'>Not Redeemed</span>
+                <% end %>
               </td>
             </tr>
           <% end %>

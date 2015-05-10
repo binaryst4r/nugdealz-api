@@ -14,6 +14,22 @@
  *= require_self
  */
 
+
+
+ #search-column{
+   margin-top: 18%;
+ }
+
+ #search-results{
+   height: 90vh !important;
+   overflow: visible;
+ }
+
+ .progress-bar-points{
+   font-size: 34px !important;
+   margin-top: 17px;
+ }
+
  #confirm-deal{
    border: 3px dashed #474747;
    border-radius: 10px;

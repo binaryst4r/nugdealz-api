@@ -8,7 +8,23 @@ class DispensariesController < ApplicationController
 	end
 
 	def index
-		@dispensaries = Dispensary.all
+		if params[:nav_search]
+			@search = params[:nav_search]
+		elsif params[:search]
+			@search = params[:search]
+		else
+			@search = ""
+		end
+
+		dispensaries = Dispensary.where('name like ?', "%#{@search}%")
+
+		if params[:location].present?
+			location = Geocoder.search(params[:location]).first.address
+			@dispensaries = dispensaries.near(location)
+		else
+			@dispensaries = dispensaries
+		end
+
 	end
 
 	def update

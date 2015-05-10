@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :users do
     get '/dashboard' => 'users#dashboard', as: 'user_dashboard'
     resources :redemptions
-
   end
 
 
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   resources :dispensaries do
     resources :deals
   end
+
 
   resources :dispensary_applications
 
