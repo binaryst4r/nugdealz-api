@@ -1,2 +1,61 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row border-bottom-light-green">
+    <div class="col-md-4">
+      <h2><%= @user.full_name %></h2>
+    </div>
+
+    <div class="col-md-8 border-left-light-green">
+      <h3>Favorite Dispensaries</h3>
+      <br>
+      <% @user.favorite_dispensaries.each do |d| %>
+        <p class='lead pink'>
+          <%= d.name %> - <%= @user.loyalty_points_for(d).round %> loyalty points
+        </p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @user.loyalty_points_for(d) %>" aria-valuemin="0" aria-valuemax="420" style="width: <%= @user.point_progress_for(d) %>%">
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Recent orders</h3>
+      <br>
+      <table class='table table-hover'>
+        <th>
+            ID
+        </th>
+        <th>
+          Dispensary
+        </th>
+        <th>
+          Deal
+        </th>
+        <th>
+          Status
+        </th>        
+
+        <tbody>
+          <% @user.redemptions.each do |r| %>
+            <tr>
+              <td>
+                #<%= r.id %>
+              </td>
+              <td>
+                <%= r.dispensary.name %>
+              </td>
+              <td>
+                <%= r.deal.description %>
+              </td>
+              <td>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ class Dispensary < ActiveRecord::Base
 
   has_many :deals
   has_many :redemptions
+  has_many :loyalty_programs
 
   geocoded_by :zip
   after_validation :geocode

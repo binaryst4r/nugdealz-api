@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508063405) do
+ActiveRecord::Schema.define(version: 20150509232223) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(version: 20150508063405) do
     t.datetime "updated_at"
     t.boolean  "medical"
     t.boolean  "recreational"
+  end
+
+  create_table "loyalty_programs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "dispensary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "point_buckets", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "loyalty_program_id"
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "redemptions", force: true do |t|

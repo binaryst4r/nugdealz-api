@@ -8,32 +8,45 @@
 
 			<%= form_for [@dispensary, @deal] do |f| %>
 			<%= f.hidden_field :dispensary_id, value: @dispensary.id %>
-				<div class='form-group'>
+				<div class='form-group col-md-12'>
 					<%= f.label :title %><br>
 					<%= f.text_field :title, class: 'form-control' %>
 				</div>
 
-				<div class='form-group'>
+				<div class='form-group col-md-12'>
 					<%= f.label :description %><br>
 					<%= f.text_field :description, class: 'form-control' %>
 				</div>
 
-				<div class='form-group'>
+				<div class='form-group col-md-12'>
 					<%= f.label :fine_print %><br>
 					<%= f.text_field :fine_print, class: 'form-control' %>
 				</div>
 
-				<div class='form-group'>
+
+				<div class='form-group col-md-6'>
 					<%= f.label :price %><br>
 					<%= f.number_field :price, class: 'form-control' %>
 				</div>
 
-				<div class='form-group'>
+				<div class='form-group col-md-6'>
 					<%= f.label :quantity_available %><br>
 					<%= f.number_field :quantity_available, class: 'form-control' %>
 				</div>
+				<div class='form-group col-md-6'>
+					<%= f.label :recreational %><br>
+					<%= f.check_box :recreational %>
+				</div>
 
-				<%= f.submit 'Save', class: 'btn btn-success' %>
+				<div class='form-group col-md-6'>
+					<%= f.label :medical %><br>
+					<%= f.check_box :medical %>
+				</div>
+
+				<div class="col-md-12">
+
+				<%= f.submit 'Save', class: 'btn btn-green' %>
+				</div>
 			<% end %>
 		</div>
 	</div>
