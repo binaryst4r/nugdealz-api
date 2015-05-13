@@ -1,6 +1,6 @@
 class DispensaryApplicationsController < ApplicationController
-  before_filter :authenticate_user!, except: [:new]
-  before_filter :authorize_admin, except: [:new]
+  before_filter :authenticate_user!, except: [:new, :create]
+  before_filter :authorize_admin, except: [:new, :create]
 
   def authorize_admin
     unless current_user.admin
