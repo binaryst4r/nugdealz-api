@@ -2,19 +2,29 @@
 	<div id='dispensary-header'>
 		<div class='row'>
 			<center>
-				<h1 id='dispensary-title'><%= @dispensary.name %></h1>
-
+				<h1 id='dispensary-title'>
+					<%= @dispensary.name %>
 					<address>
-					  <%= @dispensary.address1 %><br>
-					  <% if @dispensary.address2 %>
-					  	<%= @dispensary.address2 %><br>
-					  <% end %>
-					  <%= @dispensary.city %>, <%= @dispensary.state %> <%= @dispensary.zip %>
+						<small>
+						  <%= @dispensary.address1 %>
+						  <% if @dispensary.address2.present? %>
+						  	<%= @dispensary.address2 %>
+						  <% end %>
+						  <%= @dispensary.city %>, <%= @dispensary.state %> <%= @dispensary.zip %>
+						</small>
 					</address>
-
-					<%= link_to 'View Deals', '#deals', class: 'btn btn-clear-white' %>
-
+				</h1>
 			</center>
+
+			<div class="col-md-6 col-md-offset-3">
+				<% if current_user %>
+					<p>
+						<center>
+							<%= link_to "Browse Rewards <br>#{current_user.loyalty_points_for(@dispensary).round(0)} <i class='fa fa-fire'></i>".html_safe, '#', class: 'btn btn-pink btn-lg' %>
+						</center>
+					</p>
+				<% end %>
+			</div>
 		</div>
 	</div>
 

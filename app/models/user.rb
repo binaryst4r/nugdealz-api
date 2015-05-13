@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :loyalty_programs
+  has_many :loyalty_programs, dependent: :destroy
   has_many :dispensaries, through: :loyalty_programs
   has_many :redemptions
 

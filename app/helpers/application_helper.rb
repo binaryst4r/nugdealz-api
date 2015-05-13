@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def location
+    request.location.city
+  end
+
   def us_states
     [
       ['Alabama', 'AL'],
@@ -56,5 +60,5 @@ module ApplicationHelper
       ['Wyoming', 'WY']
     ]
 	end
-  
+
 end

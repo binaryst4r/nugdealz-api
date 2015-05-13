@@ -1,6 +1,7 @@
 <div class="container">
   <div class="col-md-12">
     <h2>Viewing Dispensary Applications</h2>
+    <br>
 
     <table class='table table-hover'>
 
@@ -32,9 +33,6 @@
         <% @dispensary_applications.each do |d| %>
           <tr>
             <td>
-              <%= link_to 'try me', new_dispensary_registration_url(dispensary_application: d.id) %>
-            </td>
-            <td>
               <%= d.dispensary_name %>
             </td>
 
@@ -52,6 +50,13 @@
 
             <td>
               <%= d.address %>
+            </td>
+            <td>
+              <% if d.verified %>
+                <span class='green'>Verified</span>
+              <% else %>
+                <%= link_to 'Approve', dispensary_application_url(d, dispensary_application: {verified: true}), class: 'btn btn-xs btn-green', id: "da_#{d.id}", remote: true, method: 'put' %>
+              <% end %>
             </td>
           </tr>
         <% end %>

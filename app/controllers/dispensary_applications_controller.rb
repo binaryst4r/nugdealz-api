@@ -1,4 +1,13 @@
 class DispensaryApplicationsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :authorize_admin
+
+  def authorize_admin
+    unless current_user.admin
+      redirect_to root_url, notice: 'You do not have permission to access that page.'
+    end
+  end
+
   def new
     @dispensary_application = DispensaryApplication.new
   end
@@ -16,6 +25,16 @@ class DispensaryApplicationsController < ApplicationController
   def destroy
   end
 
+  def update
+    @dispensary_application = DispensaryApplication.find(params[:id])
+    if @dispensary_application.update(dispensary_application_params)
+      ###EMAIL DISPENSARY
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   def index
     @dispensary_applications = DispensaryApplication.all
   end
@@ -23,9 +42,10 @@ class DispensaryApplicationsController < ApplicationController
   def show
   end
 
+
   private
 
   def dispensary_application_params
-    params.require(:dispensary_application).permit(:dispensary_name, :address1, :address2, :city, :state, :zip, :contact_name, :contact_email, :phone, :recreational, :medical)
+    params.require(:dispensary_application).permit(:dispensary_name, :address1, :address2, :city, :state, :zip, :contact_name, :contact_email, :phone, :recreational, :medical, :verified)
   end
 end

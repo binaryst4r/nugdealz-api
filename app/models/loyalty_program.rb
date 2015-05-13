@@ -1,7 +1,7 @@
 class LoyaltyProgram < ActiveRecord::Base
   belongs_to :dispensary
   belongs_to :user
-  has_many :point_buckets
+  has_many :point_buckets, dependent: :destroy
 
   validates_uniqueness_of :user_id, scope: :dispensary_id
 
