@@ -4,6 +4,9 @@ class Dispensary < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :recreational, -> {where(recreational: true)}
+ 	scope :medical, -> {where(medical: true)}
+
   has_many :deals
   has_many :redemptions
   has_many :loyalty_programs

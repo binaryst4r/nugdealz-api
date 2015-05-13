@@ -8,6 +8,16 @@ class DispensariesController < ApplicationController
 	end
 
 	def index
+		if params[:filter]
+			if params[:filter] == 'recreational'
+				@dispensaries = Dispensary.recreational
+			elsif params[:filter] == 'medical'
+				@dispensaries = Dispensary.medical
+			end
+		else
+			@dispensaries = Dispensary.all
+		end
+
 		if params[:nav_search]
 			@search = params[:nav_search]
 		elsif params[:search]
@@ -16,11 +26,12 @@ class DispensariesController < ApplicationController
 			@search = ""
 		end
 
-		dispensaries = Dispensary.where('name like ?', "%#{@search}%")
+		dispensaries = @dispensaries.where('name like ?', "%#{@search}%")
 
 		if params[:location].present?
-			location = Geocoder.search(params[:location]).first.address
-			@dispensaries = dispensaries.near(location)
+			@location = Geocoder.search(params[:location]).first.address
+			@dispensaries = dispensaries.near(@location)
+			@dispensaries.sort_by{|d| d.distance_to(@location)}
 		else
 			@dispensaries = dispensaries
 		end
