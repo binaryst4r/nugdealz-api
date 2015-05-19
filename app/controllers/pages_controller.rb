@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   end
 
   def confirm_deal
+    @payment = Payment.new
     @deal = Deal.find(params[:deal])
     @user = current_user
   end

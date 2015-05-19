@@ -88,6 +88,17 @@ User
   created_at
   updated_at
   admin: boolean
+  stripe_customer_token
 
+Payment
+  user_id: integer
+  amount: integer
+  deal_id
+  charge_token
+  card_last_4
+  card_brand
+  description: text
+  created_at
+  updated_at
 
 

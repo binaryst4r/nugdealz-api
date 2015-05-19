@@ -14,6 +14,28 @@
  *= require_self
  */
 
+ .no-pad{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+ }
+
+ .no-pad-right{
+  padding-right: 0px;
+ }
+
+.no-pad-left{
+  padding-left: 0px;
+}
+
+select {
+  width: 100% !important;
+  border: 1px solid #cccccc !important;
+  background-color: #ffffff !important;
+  height: 34px !important;
+  color: #474747;
+
+}
+
 
  #search-column{
    margin-top: 18%;

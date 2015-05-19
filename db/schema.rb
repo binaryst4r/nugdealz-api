@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510062021) do
+ActiveRecord::Schema.define(version: 20150519133147) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
@@ -78,6 +78,18 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.integer  "deal_id"
+    t.string   "charge_token"
+    t.string   "card_last_4"
+    t.string   "card_brand"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "point_buckets", force: true do |t|
     t.integer  "user_id"
     t.integer  "loyalty_program_id"
@@ -111,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+    t.string   "stripe_customer_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
