@@ -14,12 +14,11 @@
  *= require_self
  */
 
-<<<<<<< HEAD
+
  .jumbotron{
    background: rgba(255, 255, 255, 0);
  }
 
-=======
  .no-pad{
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -42,7 +41,6 @@ select {
 
 }
 
->>>>>>> 19442a9406ad9fa6068265c7505fb38406e8fe94
 
  #search-column{
    margin-top: 18%;
