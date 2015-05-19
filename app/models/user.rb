@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def loyalty_points_for(dispensary)
-    loyalty_program_for(dispensary).total_points
+    loyalty_program_for(dispensary).try(:total_points) || 0
   end
 
   def loyalty_program_for(dispensary)

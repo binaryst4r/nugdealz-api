@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :payments
+
   root to: 'pages#welcome'
 
   ##### STATIC PAGES #############

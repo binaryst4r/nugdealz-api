@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510062021) do
+ActiveRecord::Schema.define(version: 20150519133147) do
 
   create_table "deals", force: true do |t|
     t.string   "title"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "price"
-    t.boolean  "medical"
-    t.boolean  "recreational"
+    t.boolean  "medical",            default: false
+    t.boolean  "recreational",       default: false
   end
 
   create_table "dispensaries", force: true do |t|
@@ -35,18 +35,18 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                  null: false
+    t.string   "encrypted_password",                     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                          null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "recreational"
-    t.boolean  "medical"
+    t.boolean  "recreational",           default: false
+    t.boolean  "medical",                default: false
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -66,14 +66,26 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "medical"
-    t.boolean  "recreational"
+    t.boolean  "medical",         default: false
+    t.boolean  "recreational",    default: false
     t.boolean  "verified",        default: false
   end
 
   create_table "loyalty_programs", force: true do |t|
     t.integer  "user_id"
     t.integer  "dispensary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.integer  "deal_id"
+    t.string   "charge_token"
+    t.string   "card_last_4"
+    t.string   "card_brand"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,12 +108,12 @@ ActiveRecord::Schema.define(version: 20150510062021) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                  null: false
+    t.string   "encrypted_password",                     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                          null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -111,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150510062021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+    t.string   "stripe_customer_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
