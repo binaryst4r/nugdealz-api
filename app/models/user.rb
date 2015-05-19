@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   has_many :dispensaries, through: :loyalty_programs
   has_many :redemptions
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+      UserMailer.signup_confirmation(self).deliver
+  end
+
   def favorite_dispensaries
     dispensaries.sort_by{|d| loyalty_points_for(d)}.reverse
   end

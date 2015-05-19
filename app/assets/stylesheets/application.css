@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ .jumbotron{
+   background: rgba(255, 255, 255, 0);
+ }
+
 
  #search-column{
    margin-top: 18%;
@@ -63,6 +67,12 @@
  	border-radius: 4px;
  }
 
+ .btn-purple{
+   background-color: #9536a3;
+ 	color: #f6f6f6;
+ 	border-radius: 4px;
+ }
+
 
 
  #dispensary-header .row{
@@ -91,12 +101,20 @@
 	padding-bottom: 50px;
 }
 
+.form-lg{
+  height: 60px !important;
+}
+
 .light-green{
 	color: #B8E986 !important;
 }
 
 .green{
 	color: #7ED321 !important;
+}
+
+.purple {
+  color: #9536a3 !important;
 }
 
 .pink{

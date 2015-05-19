@@ -15,6 +15,17 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  Rails.application.routes.default_url_options[:host] = 'nugdealz.com'
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'binaryst4r',
+  :password => 'kingjade0204',
+  :domain => 'nugdealz.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

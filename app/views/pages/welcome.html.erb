@@ -1,11 +1,55 @@
 <div class='container-fluid'>
-	<div class='row'>
-		<div class='col-md-12'>
-			<div class="jumbotron">
-			  <h1>Find Exclusive, Premium Cannabis Deals Around You</h1>
-			  <p class='lead'>Just search to the right and start browsing, i have no idea what im saying.</p>
-			  
-			  <p><a class="btn btn-info btn-lg" href="#" role="button">learn more</a> <%= link_to 'sign up', get_started_url, class: 'btn btn-success btn-lg' %></p>
+	<div class="jumbotron">
+		<div class='row'>
+			<div class='col-md-8'>
+				<div class="col-md-12">
+				  <h1>Find Exclusive, Premium <span class='green'>Cannabis Deals</span> Around You</h1>
+				  <p class='lead'>Just search to the right and start browsing, i have no idea what im saying.</p>
+				</div>
+				<div class="col-md-9">
+					<%= form_tag dispensaries_url, method: 'get' do %>
+						<%= text_field_tag :location, request.location.city, class: 'form-control form-lg', placeholder: 'where are you?' %>
+				</div>
+				<div class="col-md-3">
+						<%= submit_tag 'search', class: 'btn btn-purple btn-lg' %>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<h2 class='pink'>Get Started Now</h2>
+
+				<%= form_for(User.new, as: :user, url: registration_path(:user), validate: true) do |f| %>
+
+					<div class='form-group col-md-6'>
+						<%= f.label :first_name %><br />
+						<%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: 'your first name' %>
+					</div>
+
+					<div class='form-group col-md-6'>
+						<%= f.label :last_name %><br />
+						<%= f.text_field :last_name, class: 'form-control', placeholder: 'your last name' %>
+					</div>
+
+					<div class='form-group col-md-12'>
+						<%= f.label :email %><br />
+						<%= f.email_field :email, class: 'form-control', placeholder: 'email' %>
+					</div>
+
+					<div class='form-group col-md-12'>
+						<%= f.label :password %><br />
+						<%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'password' %>
+					</div>
+
+					<div class='form-group col-md-12'>
+						<%= f.label :password_confirmation %><br />
+						<%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'confirm password' %>
+					</div>
+
+					<div class='col-md-12'>
+						<%= f.submit "Sign up", class: 'btn btn-green btn-block btn-lg' %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
