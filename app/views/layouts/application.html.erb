@@ -6,8 +6,8 @@
   <%= javascript_include_tag "https://js.stripe.com/v1/",  'application', 'data-turbolinks-track' => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= tag :meta, name: 'stripe-key', content: STRIPE_PUBLIC_KEY %>
   <%= csrf_meta_tags %>
-<<<<<<< HEAD
 
   <% if current_page?(root_url)  %>
     <style type="text/css">
@@ -19,10 +19,7 @@
       }
     </style>
   <% end %>
-=======
-  <%= tag :meta, name: 'stripe-key', content: STRIPE_PUBLIC_KEY %>
 
->>>>>>> 19442a9406ad9fa6068265c7505fb38406e8fe94
 </head>
 <body>
 
