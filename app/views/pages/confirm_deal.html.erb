@@ -15,56 +15,36 @@
 
 
     </div>
-    <div class='col-md-4 col-md-offset-1'>
-   <!--    <%#= link_to 'test purchase', test_purchase_url(dispensary_id: @deal.dispensary.id, deal_id: @deal.id, user_id: current_user.id), method: 'post' %> -->
+    <div class='col-md-5 col-md-offset-1'>
+      <% if current_user.has_card? %>
+          <div class='col-md-12'>
+            <h2 class='green'>Redeem Deal</h2>
+              <p class='lead'> Your <%= current_user.current_card_brand %> **** **** **** <%= current_user.current_card_last_4 %> will be charged <%= number_to_currency(@deal.price) %>. Click "Purchase Deal" below to complete your payment.
+              </p>
 
+             <%= form_for @payment,html: {id: 'existing_card'} do |f| %>
 
-      <%= form_for @payment do |f| %>
-          <% if @payment.errors.any? %>
-            <div class="error_messages">
-              <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-              <ul>
-              <% @payment.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :deal_id, value: @deal.id %>
+
+                  <%= f.hidden_field :amount, value: @deal.price*100 %>
+
+                  <div class='col-md-12 no-pad'>
+                    <p class='lead'>
+                      <strong>Total:</strong>
+                      <span class='pull-right pink'><%= number_to_currency(@deal.price) %></span>
+                    </p>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.submit "Purchase Deal", class: 'btn btn-success' %>
+                  </div>
               <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :deal_id, value: @deal.id %>
-          <%= f.hidden_field :stripe_card_token %>
-          <%= f.hidden_field :amount, value: @deal.price*100 %>
-
-
-
-          <div class="form-group col-md-9 no-pad-left">
-            <%= label_tag :card_number, "Credit Card Number " %>
-            <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
           </div>
 
-          <div class="form-group col-md-3 no-pad">
-              <%= label_tag :card_code, "CVV" %>
-              <%= text_field_tag :card_code, nil, name: nil, class: 'form-control' %>
-          </div>
-         <div class='col-md-6 no-pad form-group'>
-          <%= label_tag :card_month, "Card Expiration" %>
-            <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month", class: 'form-control'} %>
-          </div>
-          <div class=' col-md-6 no-pad-right form-group' style='padding-top:25px;'>
-            <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", class: 'form-control'}%>
-          </div>
-          <div class='col-md-12 no-pad'>
-            <p class='lead'>
-              <strong>Total:</strong>
-              <span class='pull-right pink'><%= number_to_currency(@deal.price) %></span>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <%= f.submit "Purchase Deal", class: 'btn btn-success' %>
-          </div>
-        <% end %>
+      <% else %>
+          <%= render 'payment_form' %>
+      <% end %>
 
 
 

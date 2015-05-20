@@ -1,7 +1,9 @@
 class Deal < ActiveRecord::Base
 	belongs_to :dispensary
 	has_many :redemptions
-	
+  has_many :payments
+
+
 	scope :recreational, -> {where(recreational: true)}
 	scope :medical, -> {where(medical: true)}
 

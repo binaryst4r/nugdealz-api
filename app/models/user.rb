@@ -7,11 +7,28 @@ class User < ActiveRecord::Base
   has_many :loyalty_programs, dependent: :destroy
   has_many :dispensaries, through: :loyalty_programs
   has_many :redemptions
+  has_many :payments
 
   after_create :send_welcome_email
 
   def send_welcome_email
       UserMailer.signup_confirmation(self).deliver
+  end
+
+  def has_card?
+    self.stripe_customer_token.present?
+  end
+
+  def current_card_brand
+    if self.payments.present?
+      self.payments.last.card_brand
+    end
+  end
+
+  def current_card_last_4
+    if self.payments.present?
+      self.payments.last.card_last_4
+    end
   end
 
   def favorite_dispensaries
