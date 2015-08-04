@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :loyalty_programs, dependent: :destroy
+  has_many :point_buckets, through: :loyalty_programs
   has_many :dispensaries, through: :loyalty_programs
   has_many :redemptions
   has_many :payments
@@ -37,6 +38,10 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def total_points
+    point_buckets.all.sum(:value)
   end
 
   def point_progress_for(dispensary)

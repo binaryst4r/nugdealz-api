@@ -14,6 +14,27 @@
  *= require_self
  */
 
+#welcome-jumbo{
+	height: 80vh;
+}
+
+ .dispensary-well{
+   margin-top: -21px;
+   padding-top: 20px;
+   background-color: #7ed321;
+   color: #f6f6f6;
+   height: 94vh;
+ }
+ 
+ #about-section{
+	 background-color:#333333;
+	 min-height: 400px;
+ }
+ 
+ #about-section p{
+ 	 color: #f6f6f6;
+ }
+
 
  .jumbotron{
    background: rgba(255, 255, 255, 0);
@@ -94,6 +115,10 @@ select {
    background-color: #9536a3;
  	color: #f6f6f6;
  	border-radius: 4px;
+ }
+ 
+ .gray{
+	 color: #a6a6a6 !important;
  }
 
 

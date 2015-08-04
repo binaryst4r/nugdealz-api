@@ -5,12 +5,17 @@ class Redemption < ActiveRecord::Base
 
   before_create :create_loyalty_program
   after_create :set_points
+  after_create :send_confirmation_email
 
   validates_uniqueness_of :user_id, scope: :deal_id
 
+  def send_confirmation_email
+    UserMailer.redemption_confirmation(self.user, self)
+  end
+
   def set_points
     loyalty_program = user.loyalty_program_for(dispensary)
-    bucket_value = (deal.price*4.20)
+    bucket_value = (deal.price.round(0))
     PointBucket.create(user_id: user.id, loyalty_program_id: loyalty_program.id, value: bucket_value)
   end
 

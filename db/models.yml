@@ -33,7 +33,7 @@ Dispensary
   medical: boolean
   latitude: float
   longitude: float
-
+  leafly_slug
 
 DispensaryApplications
   dispensary_name
@@ -93,10 +93,16 @@ User
 Payment
   user_id: integer
   amount: integer
-  deal_id
+  deal_id: integer
   charge_token
   card_last_4
   card_brand
   description: text
   created_at
   updated_at
+
+SupportInquiry
+  email
+  subject
+  user_id: integer
+  message: text

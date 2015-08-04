@@ -25,13 +25,17 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-
-
-
-
+    user_id = params[:payment][:user_id]
+    @user = User.find(user_id)
+    deal_id = params[:payment][:deal_id]
+    @deal = Deal.find(deal_id)
+    dispensary_id = params[:payment][:dispensary_id]
+    @dispensary = Dispensary.find(dispensary_id)
     respond_to do |format|
       if @payment.save_with_payment
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        Redemption.create(user_id: user_id, deal_id: deal_id, dispensary_id: dispensary_id)
+        @dispensary.reduce_quantity_for(@deal)
+        format.html { redirect_to user_url(@user), notice: 'You have successfully redeemed your deal, check your email for instructions.'}
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { redirect_to :back, notice: "Oops, that didn't work. Please try again." }

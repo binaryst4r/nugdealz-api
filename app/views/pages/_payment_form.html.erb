@@ -12,6 +12,7 @@
 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :deal_id, value: @deal.id %>
+    <%= f.hidden_field :dispensary_id, value: @dispensary.id %>
     <%= f.hidden_field :stripe_card_token %>
     <%= f.hidden_field :amount, value: @deal.price*100 %>
 

@@ -8,23 +8,25 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= tag :meta, name: 'stripe-key', content: STRIPE_PUBLIC_KEY %>
   <%= csrf_meta_tags %>
-
-  <% if current_page?(root_url)  %>
-    <style type="text/css">
-      body{
-        background: url('/assets/nugdealz_bg.jpg')no-repeat !important;
-        background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-      }
-    </style>
-  <% end %>
+	
+	<!-- <% if current_page?(root_url) %>
+		<style type="text/css" media="screen">
+		body{
+			background: url('/assets/a_plant.jpg') no-repeat center center fixed !important;
+			background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			-webkit-background-size: cover;
+			color: #f6f6f6 !important;
+		}
+		</style>
+	<% end %> -->
 
 </head>
 <body>
 
   <%= render '/layouts/nav' %>
-
+	
   <% if notice %>
     <div class="container">
       <div class="col-md-12 alert alert-info">
@@ -33,6 +35,7 @@
     </div>
   <% end %>
 
+	<%= render '/layouts/modal' %>
 	<%= yield %>
 
 

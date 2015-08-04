@@ -14,5 +14,10 @@ class Dispensary < ActiveRecord::Base
   geocoded_by :zip
   after_validation :geocode
 
+  def reduce_quantity_for(deal)
+    deal.quantity_available -= 1
+    deal.save
+  end
+
 
 end

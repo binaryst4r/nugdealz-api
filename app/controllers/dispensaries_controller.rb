@@ -6,6 +6,18 @@ class DispensariesController < ApplicationController
 	def edit
 		@dispensary = Dispensary.find(params[:id])
 	end
+  
+  def menu
+    @dispensary = Dispensary.find(params[:dispensary_id])
+    app_id = "b42999e4"
+    app_key = "1c49dab735a206ea5f16c78dd6c53c65"
+    slug = @dispensary.leafly_slug
+    dispensary = HTTParty.get("http://data.leafly.com/locations/#{slug}", {headers:{"app_id" => app_id, "app_key" => app_key}})
+    @specials = dispensary["specialsList"]
+    
+    respond_to :js
+    
+  end
 
 	def index
 		if params[:filter]

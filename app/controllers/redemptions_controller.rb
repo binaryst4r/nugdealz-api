@@ -11,6 +11,15 @@ class RedemptionsController < ApplicationController
 
   def destroy
   end
+  
+  def update
+    @redemption = Redemption.find(params[:id])
+    if @redemption.redeemed = true
+      redirect_to root_url, notice: 'This deal has already been redeemed.'
+    else
+      redirect_to root_url, notice: 'Deal successfully redeemed'.
+    end
+  end
 
   def index
   end

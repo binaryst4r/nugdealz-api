@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.boolean  "medical",                default: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "leafly_slug"
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
@@ -106,6 +107,15 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.integer  "dispensary_id"
     t.boolean  "redeemed",      default: false
   end
+
+  create_table "support_inquiries", force: true do |t|
+    t.string  "email"
+    t.string  "subject"
+    t.integer "user_id"
+    t.text    "message"
+  end
+
+  add_index "support_inquiries", ["user_id"], name: "index_support_inquiries_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                                  null: false

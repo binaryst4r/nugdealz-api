@@ -1,23 +1,33 @@
 <div class='container-fluid'>
-	<div class="jumbotron">
+	<div id='welcome-jumbo' class="jumbotron">
 		<div class='row'>
-			<div class='col-md-8'>
+			<div class='col-md-12 text-center'>
 				<div class="col-md-12">
-				  <h1>Find Exclusive, Premium <span class='green'>Cannabis Deals</span> Around You</h1>
+					<center>
+						<%= image_tag 'nugdealz.png', class: 'img-responsive' %>
+					</center>
+				  <h2>Exclusive, <em><span class='pink'>Premium Cannabis Deals</span></em> Around You</h2>
 				  <p class='lead'>Just search to the right and start browsing, i have no idea what im saying.</p>
 				</div>
-				<div class="col-md-9">
+				<div class='col-md-2'>
+					<%= select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control form-lg' %>
+				</div>
+				<div class="col-md-8">
 					<%= form_tag dispensaries_url, method: 'get' do %>
 						<%= text_field_tag :location, request.location.city, class: 'form-control form-lg', placeholder: 'where are you?' %>
+						<br>
+
 				</div>
-				<div class="col-md-3">
-						<%= submit_tag 'search', class: 'btn btn-purple btn-lg' %>
+				<div class="col-md-2">
+						<%= submit_tag 'search', class: 'btn btn-green btn-lg btn-block' %>
+				</div>
+
 					<% end %>
-				</div>
+
 			</div>
 
-			<div class="col-md-4">
-				<h2 class='pink'>Get Started Now</h2>
+			<!-- <div class="col-md-4">
+				<h2>Get Started Now</h2>
 
 				<%= form_for(User.new, as: :user, url: registration_path(:user), validate: true) do |f| %>
 
@@ -47,10 +57,26 @@
 					</div>
 
 					<div class='col-md-12'>
-						<%= f.submit "Sign up", class: 'btn btn-green btn-block btn-lg' %>
+						<%= f.submit "Sign up", class: 'btn btn-default btn-block btn-lg' %><br>
+
+
 					</div>
 				<% end %>
+			</div> -->
+				
 			</div>
+			
 		</div>
 	</div>
 </div>
+
+<nav>
+	<center>
+		<%= link_to 'support', '#', class: 'gray' %> | 
+		<%= link_to 'dispensary application', '#', class: 'gray' %> | 
+		<%= link_to 'work for nugdealz', '#', class: 'gray' %>
+		<br>
+		<br>	
+		<p>Copyright 2015 nugdealz inc</p>
+	</center>
+</nav>	
