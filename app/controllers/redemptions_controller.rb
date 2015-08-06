@@ -11,13 +11,13 @@ class RedemptionsController < ApplicationController
 
   def destroy
   end
-  
+
   def update
     @redemption = Redemption.find(params[:id])
     if @redemption.redeemed = true
       redirect_to root_url, notice: 'This deal has already been redeemed.'
     else
-      redirect_to root_url, notice: 'Deal successfully redeemed'.
+      redirect_to root_url, notice: 'Deal successfully redeemed.'
     end
   end
 
@@ -29,4 +29,5 @@ class RedemptionsController < ApplicationController
   def redemption_params
     params.require(:redemption).permit(:user_id, :deal_id, :redeemed)
   end
+
 end
