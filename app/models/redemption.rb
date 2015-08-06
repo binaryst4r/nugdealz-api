@@ -10,7 +10,7 @@ class Redemption < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :deal_id
 
   def send_confirmation_email
-    UserMailer.redemption_confirmation(self.user, self)
+    UserMailer.redemption_confirmation(self.user, self).deliver
   end
 
   def set_points

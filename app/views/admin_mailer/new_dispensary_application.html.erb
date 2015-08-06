@@ -107,18 +107,15 @@
                                 <tr>
                                   <td valign="top" class="textContent">
 
-                                    <h4>Your nugdealz redemption details:</h4>
-                                      <p>
-                                        <b>Name:</b> <%= @user.full_name %>
-                                      </p>
-
-                                      <p>
-                                        <b>Deal:</b> <%= @redemption.dispensary.name %> - <%= @redemption.deal.title %>
-                                      </p>
-
-                                      <p>
-                                        <%= @qr %>
-                                      </p>
+                                    <h4><%= @dispensary_application.dispensary_name %> is interested in joining the community</h4>
+                                    <ul>
+                                      <li><%= @dispensary_application.contact_name %></li>
+                                      <li><%= @dispensary_application.contact_email %></li>
+                                      <li><%= @dispensary_application.address1 %></li>
+                                      <li><%= @dispensary_application.city %></li>
+                                      <li><%= @dispensary_application.state %></li>
+                                      <li><%= @dispensary_application.zip %></li>
+                                    </ul>
 
 
 

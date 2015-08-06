@@ -11,37 +11,42 @@
         </div>
       </div>
       <div class="col-md-3">
-        <%= submit_tag 'Search', class: 'btn btn-green' %>
+        <%= submit_tag 'Search', class: 'btn btn-default' %>
       </div>
       <% end %>
     </div>
 
-    <div class="col-md-8 border-left-light-green" id='search-results'>
+    <div class="col-md-8 padding-left border-left" id='search-results'>
       <div class="row">
         <div class="col-md-12">
           <b>Filter: <%= link_to 'All', dispensaries_url %> / <%= link_to 'Recreational', dispensaries_url(filter: 'recreational')  %> / <%= link_to 'Medical', dispensaries_url(filter: 'medical') %></b>
-          <h3>Dispensaries matching search: <span class='pink'>"<%= @search %>"</span></h3>
+          <h3>Dispensaries matching search: "<%= @search %>"</h3>
         </div>
       </div>
       <% @dispensaries.each do |d| %>
-        <div class="row border-bottom-light-green">
-          <div class="col-md-9">
-            <h3>
-              <%= link_to d.name, dispensary_deals_url(d), class: 'pink' %>
-            </h3>
-            <p>
-            <% d.deals.each do |deal| %>
-              <span data-toggle="tooltip" data-placement="top" title='<%= deal.description %>' class='badge'><%= deal.title %></span>
-            <% end %>
-            </p>
+        <div class="row medium-padding-top medium-padding-bottom border-bottom">
+          <div class="col-md-3">
+            <%= link_to image_tag("default_dispensary.png", class: 'img-responsive'), dispensary_deals_url(d) %>
           </div>
-          <div class="col-md-3 text-center">
-            <p class='lead'>
-              <% if @location %>
-                <br>
-                <%= d.distance_to(@location).round(2) %> miles away
+          <div class="col-md-9">
+            <div class="col-md-9">
+              <h3>
+                <%= link_to d.name, dispensary_deals_url(d) %>
+              </h3>
+              <p>
+              <% d.available_deals.each do |deal| %>
+                <span data-toggle="tooltip" data-placement="top" title='<%= deal.description %>' class='badge'><%= deal.title %></span>
               <% end %>
-            </p>
+              </p>
+            </div>
+            <div class="col-md-3 text-center">
+              <p class='lead'>
+                <% if @location %>
+                  <br>
+                  <%= d.distance_to(@location).round(2) %> miles away
+                <% end %>
+              </p>
+            </div>
           </div>
         </div>
       <% end %>

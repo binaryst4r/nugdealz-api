@@ -1,6 +1,6 @@
 <div class='container-fluid'>
 	<div id='dispensary-header'>
-		<div class='row'>
+		<div class='row padding-bottom'>
 			<center>
 				<h1 id='dispensary-title'>
 					<%= @dispensary.name %>
@@ -14,14 +14,14 @@
 						</small>
 					</address>
 				</h1>
-				<%= link_to 'Browse Menu', dispensary_menu_url(@dispensary), class: 'btn btn-green btn-lg', remote: true %>
+				<%= link_to 'Browse Menu', dispensary_menu_url(@dispensary), class: 'btn btn-default btn-lg', remote: true %>
 			</center>
 
 			<div class="col-md-6 col-md-offset-3">
 				<% if current_user %>
 					<p>
 						<center>
-							<%= link_to "Browse Rewards <br>#{current_user.loyalty_points_for(@dispensary).round(0)} <i class='fa fa-fire'></i>".html_safe, '#', class: 'btn btn-pink btn-lg' %>
+							<%= link_to "Browse Rewards <br>#{current_user.loyalty_points_for(@dispensary).round(0)} <i class='fa fa-fire'></i>".html_safe, '#', class: 'btn btn-default btn-lg' %>
 						</center>
 					</p>
 				<% end %>

@@ -25,12 +25,12 @@
    color: #f6f6f6;
    height: 94vh;
  }
- 
+
  #about-section{
 	 background-color:#333333;
 	 min-height: 400px;
  }
- 
+
  #about-section p{
  	 color: #f6f6f6;
  }
@@ -116,7 +116,7 @@ select {
  	color: #f6f6f6;
  	border-radius: 4px;
  }
- 
+
  .gray{
 	 color: #a6a6a6 !important;
  }
@@ -125,9 +125,9 @@ select {
 
  #dispensary-header .row{
  	background: url('the-weed-2.jpg')no-repeat center center;
- 	height: 415px;
+ 	min-height: 315px;
  	padding-top: 10%;
- 	border-bottom: 1px solid #B8e986;
+ 	border-bottom: 1px solid #dddddd;
  }
 
  #dispensary-header{
@@ -166,11 +166,32 @@ select {
 }
 
 .pink{
-	color: #E56D9A !important;
+		color: #E56D9A !important;
 }
 
 .padding-top{
 	padding-top: 40px;
+}
+
+.medium-padding-top{
+	padding-top: 20px;
+}
+
+
+.padding-bottom{
+	padding-bottom: 40px;
+}
+
+.medium-padding-bottom{
+	padding-bottom: 20px;
+}
+
+.padding-left{
+	padding-left: 40px;
+}
+
+.padding-right{
+	padding-right: 40px;
 }
 
 .border-bottom-light-green{
@@ -188,4 +209,25 @@ select {
 .left-right-border-light-green{
 	border-left: 1px solid #B8e986;
 	border-right: 1px solid #B8e986;
+}
+
+.left-right-border{
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+}
+
+.border-bottom{
+	border-bottom: 1px solid  #dddddd
+}
+
+.border-left{
+	border-left: 1px solid  #dddddd
+}
+
+.border-right{
+	border-right: 1px solid  #dddddd
+}
+
+.border-top{
+	border-top: 1px solid  #dddddd
 }
