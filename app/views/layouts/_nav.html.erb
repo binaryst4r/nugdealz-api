@@ -19,7 +19,7 @@
       </ul>
       <%= form_tag '/dispensaries', class: 'navbar-form navbar-left', role: 'search', method: 'get' do  %>
         <div class="form-group">
-          <%= text_field_tag :location, request.location.city, class: 'form-control', placeholder: 'location' %>
+          <%= text_field_tag :location, nil, class: 'form-control', placeholder: 'location' %>
           <%= text_field_tag :nav_search, nil, class: 'form-control', placeholder: 'search dispensaries' %>
           <%= submit_tag 'search', class: 'btn btn-default' %>
         </div>
