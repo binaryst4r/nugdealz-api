@@ -31,11 +31,7 @@ end
   end
 
   def welcome
-    if request.location.city.present?
-      @location = request.location.city
-    else
-      @location = ""
-    end
+    
   end
 
   def get_started
