@@ -1,7 +1,9 @@
 module ApplicationHelper
 
   def location
-    request.location.city
+    if request.location
+      return request.location.city
+    end
   end
 
   def us_states
