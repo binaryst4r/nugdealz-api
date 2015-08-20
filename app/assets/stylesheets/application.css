@@ -21,8 +21,16 @@
  .dispensary-well{
    margin-top: -21px;
    padding-top: 20px;
-   background-color: #7ed321;
-   color: #f6f6f6;
+   background-color: #194838;
+   color: #f6f6f6 !important;
+   height: 94vh;
+ }
+ 
+ .user-well{
+   margin-top: -21px;
+   padding-top: 20px;
+   background-color: #24214b;
+   color: #f6f6f6 !important;
    height: 94vh;
  }
 
@@ -106,15 +114,19 @@ select {
  }
 
  .btn-green{
- 	background-color: #7ED321;
+ 	background-color: #7ed321;
  	color: #f6f6f6;
  	border-radius: 4px;
  }
 
  .btn-purple{
-   background-color: #9536a3;
+   background-color: #24214b;
  	color: #f6f6f6;
  	border-radius: 4px;
+ }
+ 
+ .purple{
+	 color: #24214b !important;
  }
 
  .gray{
@@ -158,11 +170,11 @@ select {
 }
 
 .green{
-	color: #7ED321 !important;
+	color: #194838 !important;
 }
 
 .purple {
-  color: #9536a3 !important;
+  color: #504e7a !important;
 }
 
 .pink{
