@@ -27,7 +27,7 @@ class RedemptionsController < ApplicationController
   def redeem
     @redemption = Redemption.find(params[:redemption_id])
     if @redemption.redeemed
-      redirect_to root_url, notice: 'This deal has already beenr redeemed'
+      redirect_to root_url, notice: 'This deal has already been redeemed'
     else
       @redemption.redeemed = true
       respond_to do |format|

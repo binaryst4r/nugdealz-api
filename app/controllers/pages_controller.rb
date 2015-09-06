@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:confirm_deal]
-  # before_filter :validate_user, only: [:confirm_deal]
+  before_filter :validate_user, only: [:confirm_deal]
   
 def validate_user
   if current_user.redemptions.where(:deal_id => params[:deal]).present?
-    redirect_to :back, notice: 'You have already redeemed this deal once.'
+    redirect_to :back, notice: 'You have already purchased this deal once.'
   end
 end
 
