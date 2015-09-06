@@ -1,8 +1,10 @@
 .container
-  .row
-    .col-md-6
-      =image_tag('nugdealz.png', width: '100%')
-    .col-md-6
+  .row    
+    .col-md-6.col-md-offset-3
+      .col-md-12
+        %h2
+          Ask us anything!
+        %br
       = form_for @support_inquiry do |f|
         - if current_user
           = f.hidden_field :user_id, value: current_user.id
