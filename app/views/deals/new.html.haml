@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-6
+      %h3 Create a Deal
+      %p.lead Some information about creating a deal. Maybe to help these poor people out damnnn.
+    .col-md-5.col-md-offset-1
+      = form_for [@dispensary, @deal] do |f|
+        = f.hidden_field :dispensary_id, value: @dispensary.id
+        .form-group.col-md-12
+          = f.label :title
+          %br/
+          = f.text_field :title, class: 'form-control'
+        .form-group.col-md-12
+          = f.label :description
+          %br/
+          = f.text_field :description, class: 'form-control'
+        .form-group.col-md-12
+          = f.label :fine_print
+          %br/
+          = f.text_field :fine_print, class: 'form-control'
+        .form-group.col-md-6
+          = f.label :price
+          %br/
+          = f.number_field :price, class: 'form-control'
+        .form-group.col-md-6
+          = f.label :quantity_available
+          %br/
+          = f.number_field :quantity_available, class: 'form-control'
+        .form-group.col-md-6
+          = f.label :recreational
+          %br/
+          = f.check_box :recreational
+        .form-group.col-md-6
+          = f.label :medical
+          %br/
+          = f.check_box :medical
+        .col-md-12
+          = f.submit 'Save', class: 'btn btn-green'

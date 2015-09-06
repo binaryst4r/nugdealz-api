@@ -1,0 +1,30 @@
+.container-fluid
+  #welcome-jumbo.jumbotron
+    .row
+      .col-md-12.text-center
+        .col-md-12
+          %center
+            = image_tag 'nugdealz.png', class: 'img-responsive'
+          %h2
+            Exclusive,
+            %em
+              %span.pink Premium Cannabis Deals
+            Around You
+          %p.lead Just search to the right and start browsing, i have no idea what im saying.
+        .col-md-2
+          = select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control form-lg'
+        .col-md-8
+          = form_tag dispensaries_url, method: 'get' do
+            = text_field_tag :location, nil, class: 'form-control form-lg', placeholder: 'address, city, state or zip'
+            %br/
+        .col-md-2
+          = submit_tag 'search', class: 'btn btn-default btn-lg btn-block'
+%nav
+  %center
+    = link_to 'support', '#', class: 'gray'
+    |
+    \#{link_to 'dispensary application', new_dispensary_application_url, class: 'gray'} |
+    \#{link_to 'work for nugdealz', '#', class: 'gray'}
+    %br/
+    %br/
+    %p Copyright 2015 nugdealz inc

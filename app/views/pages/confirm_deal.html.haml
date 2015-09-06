@@ -1,0 +1,30 @@
+.container
+  .row.padding-top
+    #confirm-deal.col-md-6
+      %center
+        %h2.pink= @deal.dispensary.name
+        %p.lead
+          %b= @deal.title
+          %br/
+          = @deal.description
+        %h2.green
+          = number_to_currency(@deal.price)
+    .col-md-5.col-md-offset-1
+      - if current_user.has_card?
+        .col-md-12
+          %h2.green Redeem Deal
+          %p.lead
+            Your #{current_user.current_card_brand} **** **** **** #{current_user.current_card_last_4} will be charged #{number_to_currency(@deal.price)}. Click "Purchase Deal" below to complete your payment.
+          = form_for @payment,html: {id: 'existing_card'} do |f|
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :deal_id, value: @deal.id
+            = f.hidden_field :dispensary_id, value: @dispensary.id
+            = f.hidden_field :amount, value: @deal.price*100
+            .col-md-12.no-pad
+              %p.lead
+                %strong Total:
+                %span.pull-right.pink= number_to_currency(@deal.price)
+            .form-group
+              = f.submit "Purchase Deal", class: 'btn btn-success'
+      - else
+        = render 'payment_form'

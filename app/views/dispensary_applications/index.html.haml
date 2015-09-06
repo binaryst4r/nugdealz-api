@@ -1,0 +1,35 @@
+.container
+  .col-md-12
+    %h2 Viewing Dispensary Applications
+    %br/
+    %table.table.table-hover
+      %th
+        Dispensary Name
+      %th
+        Contact Email
+      %th
+        Contact Name
+      %th
+        Phone
+      %th
+        Address
+      %th
+        Status
+      %tbody
+        - @dispensary_applications.each do |d|
+          %tr
+            %td
+              = d.dispensary_name
+            %td
+              = d.contact_email
+            %td
+              = d.contact_name
+            %td
+              = d.phone
+            %td
+              = d.address
+            %td
+              - if d.verified
+                %span.green Verified
+              - else
+                = link_to 'Approve', dispensary_application_url(d, dispensary_application: {verified: true}), class: 'btn btn-xs btn-green', id: "da_#{d.id}", remote: true, method: 'put'

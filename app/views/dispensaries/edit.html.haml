@@ -1,0 +1,31 @@
+.container
+  .col-md-4
+    %h3.pink= @dispensary.name
+  .col-md-4
+    = form_for @dispensary do |f|
+      .form-group.col-md-12
+        = f.label :email
+        %br/
+        = f.email_field :email, class: 'form-control', value: @dispensary.email
+      .form-group.col-md-12
+        = f.label :address1, "Street Address"
+        %br/
+        = f.text_field :address1, class: 'form-control', value: @dispensary.address1
+      .form-group.col-md-12
+        = f.label :address2, "Address 2"
+        %br/
+        = f.text_field :address2, class: 'form-control', value: @dispensary.address2
+      .form-group.col-md-7
+        = f.label :city, "City"
+        %br/
+        = f.text_field :city, class: 'form-control', value: @dispensary.city
+      .form-group.col-md-5
+        = f.label :state, "State"
+        %br/
+        = f.select :state, options_for_select(us_states, selected: @dispensary.state), {}, class: 'form-control'
+      .form-group.col-md-12
+        = f.label :zip
+        %br/
+        = f.text_field :zip, class: 'form-control', value: @dispensary.zip
+      .col-md-12
+        = f.submit "Save", class: 'btn btn-green'

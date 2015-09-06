@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-md-6
+    .col-md-6
+      = form_for @support_inquiry do |f|
+        - if current_user
+          = f.hidden_field :user_id, value: current_user.id
+        .form-group.col-md-12
+          = f.label :email
+          %br/
+          = f.email_field :email, class: 'form-control', placeholder: 'Email Address'
+        .form-group.col-md-12
+          = f.label :subject
+          %br/
+          = f.select :subject, options_for_select(["General Question", "Dispensary Setup ", "Billing", "Ordering", "Feedback", "Other" ]), {}, class: 'form-control'
+        .form-group.col-md-12
+          = f.label :message
+          %br/
+          = f.text_area :message, rows: '5', class: 'form-control', placeholder: 'Type message..'
+        .col-md-12
+          = f.submit 'Send', class: 'btn btn-green'

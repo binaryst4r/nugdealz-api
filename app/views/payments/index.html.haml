@@ -1,0 +1,31 @@
+%h1 Listing payments
+%table
+  %thead
+    %tr
+      %th User
+      %th Amount
+      %th Deal
+      %th Charge token
+      %th Card last 4
+      %th Card brand
+      %th Description
+      %th Created at
+      %th Updated at
+      %th{:colspan => "3"}
+  %tbody
+    - @payments.each do |payment|
+      %tr
+        %td= payment.user_id
+        %td= payment.amount
+        %td= payment.deal_id
+        %td= payment.charge_token
+        %td= payment.card_last_4
+        %td= payment.card_brand
+        %td= payment.description
+        %td= payment.created_at
+        %td= payment.updated_at
+        %td= link_to 'Show', payment
+        %td= link_to 'Edit', edit_payment_path(payment)
+        %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Payment', new_payment_path

@@ -11,15 +11,7 @@ class UserMailer < ActionMailer::Base
   def redemption_confirmation(user, redemption)
     @user = user
     @redemption = redemption
-    @qr = RQRCode::QRCode.new('http://www.google.com').as_png(resize_gte_to: false,
-          resize_exactly_to: false,
-          fill: 'white',
-          color: 'black',
-          size: 120,
-          border_modules: 4,
-          file: false,
-          module_px_size: 6,
-          output_file: nil)
+    @redeem_url = "http://api.qrserver.com/v1/create-qr-code/?data=10.0.0.177:3000/users/#{user.id}/redemptions/#{@redemption.id}/redeem&size=200x200"
 
     mail to: user.email, subject: 'Your Deal from nugdealz'
   end

@@ -24,6 +24,24 @@ class RedemptionsController < ApplicationController
   def index
   end
 
+  def redeem
+    @redemption = Redemption.find(params[:redemption_id])
+    if @redemption.redeemed
+      redirect_to root_url, notice: 'This deal has already beenr redeemed'
+    else
+      @redemption.redeemed = true
+      respond_to do |format|
+        if @redemption.save
+          format.html {redirect_to root_url, notice: 'Hell YESHHHHH'}
+        else
+          format.html {redirect_to root_url, notice: 'Hell NOOOOO'}        
+        end
+      end
+    end
+
+    
+  end
+
   private
 
   def redemption_params

@@ -1,0 +1,17 @@
+.row
+  .col-md-8.col-md-offset-2.left-right-border
+    - @dispensary.deals.each do |deal|
+      .row.border-bottom.padding-top
+        %h3.text-center.green= deal.title
+        .col-md-2.text-center
+          %p
+            %span.point-value= deal.point_value
+            %br/
+            points
+        .col-md-8
+          %p.lead
+            = deal.description
+            %b
+              (#{deal.quantity_available} left)
+        .col-md-2
+          = link_to 'Redeem', confirm_deal_url(deal: deal.id), class: 'btn btn-default btn-block'

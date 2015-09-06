@@ -1,0 +1,17 @@
+.container
+  .row
+    #get-started-user.col-md-6.text-left
+      %h2.green Users
+      %p.lead
+        Want to start getting the
+        %b best deals
+        for recreational cannabis?
+      %p
+        = link_to 'Get Started', new_user_registration_url, class: 'btn btn-green btn-lg'
+    #get-started-dispensary.col-md-6.text-right
+      %h2.pink Dispensaries
+      %p.lead
+        Do you own a dispensary and want to
+        %b advertise
+        on nugdealz?
+      %p= link_to "Apply", new_dispensary_application_url, class: 'btn btn-pink btn-lg'

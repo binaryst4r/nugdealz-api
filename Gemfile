@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.7'
 gem 'devise'
 gem 'geocoder'
+gem "haml-rails", "~> 0.9"
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'

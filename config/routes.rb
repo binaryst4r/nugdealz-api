@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
   resources :users do
     get '/dashboard' => 'users#dashboard', as: 'user_dashboard'
-    resources :redemptions
+    resources :redemptions do 
+      get '/redeem' => 'redemptions#redeem'
+    end
   end
 
 
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
     resources :deals
     get '/menu' => 'dispensaries#menu', as: 'menu'
   end
+
 
 
   resources :dispensary_applications

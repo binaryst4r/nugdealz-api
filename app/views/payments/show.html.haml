@@ -1,0 +1,31 @@
+%p#notice= notice
+%p
+  %strong User:
+  = @payment.user_id
+%p
+  %strong Amount:
+  = @payment.amount
+%p
+  %strong Deal:
+  = @payment.deal_id
+%p
+  %strong Charge token:
+  = @payment.charge_token
+%p
+  %strong Card last 4:
+  = @payment.card_last_4
+%p
+  %strong Card brand:
+  = @payment.card_brand
+%p
+  %strong Description:
+  = @payment.description
+%p
+  %strong Created at:
+  = @payment.created_at
+%p
+  %strong Updated at:
+  = @payment.updated_at
+= link_to 'Edit', edit_payment_path(@payment)
+|
+= link_to 'Back', payments_path
