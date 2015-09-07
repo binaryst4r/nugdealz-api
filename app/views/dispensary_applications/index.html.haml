@@ -32,4 +32,4 @@
               - if d.verified
                 %span.green Verified
               - else
-                = link_to 'Approve', dispensary_application_url(d, dispensary_application: {verified: true}), class: 'btn btn-xs btn-green', id: "da_#{d.id}", remote: true, method: 'put'
+                = link_to 'Approve', dispensary_application_url(d, dispensary_application: {verified: true}), class: 'btn btn-xs btn-green', id: "da_#{d.id}", method: 'put'

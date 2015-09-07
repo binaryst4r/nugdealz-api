@@ -19,7 +19,7 @@ class Dispensary < ActiveRecord::Base
   after_validation :geocode
 
   def recreational_or_medical
-    if !self.medical.present? || !self.recreational.present?
+    if !self.medical.present? && !self.recreational.present?
       redirect_to :back, notice: 'You must select recreational or medical.'
     end
   end

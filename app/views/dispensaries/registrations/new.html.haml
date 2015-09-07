@@ -2,9 +2,9 @@
   .col-md-4
     %h2 Getting started selling with nugdealz
     %p.lead Use the form to the right to create a new dispensary. We should use this area to provide a little more information about what theyre actually doing. TBD....
-  .col-md-4
-    - if @da
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  - if @da
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .col-md-4
         = devise_error_messages!
         = f.hidden_field :recreational, value: @da.recreational
         = f.hidden_field :medical, value: @da.medical
@@ -25,23 +25,28 @@
           %br/
           = f.text_field :address2, class: 'form-control', value: @da.address2, readonly: true
         .form-group.col-md-8
-          = f.label :city, "Address 2"
+          = f.label :city, "City"
           %br/
           = f.text_field :city, class: 'form-control', value: @da.city, readonly: true
         .form-group.col-md-4
-          = f.label :state, "Address 2"
+          = f.label :state, "State"
           %br/
           = f.text_field :state, class: 'form-control', value: @da.state, readonly: true
-  .col-md-4
-    .form-group.col-md-12
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "off", class: 'form-control'
-    .form-group.col-md-12
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-    .col-md-12= f.submit "Sign up", class: 'btn btn-green'
+        .form-group.col-md-12
+          = f.label :zip, "Zip Code"
+          %br/
+          = f.text_field :zip, class: 'form-control', value: @da.zip, readonly: true
+      .col-md-4
+        .form-group.col-md-12
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+        .form-group.col-md-12
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+        .col-md-12
+          = f.submit "Sign up", class: 'btn btn-green'
   - else
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!

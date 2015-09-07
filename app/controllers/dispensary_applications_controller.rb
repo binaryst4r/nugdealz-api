@@ -26,13 +26,13 @@ class DispensaryApplicationsController < ApplicationController
   end
 
   def update
-    @dispensary_application = DispensaryApplication.find(params[:id])
-    if @dispensary_application.update(dispensary_application_params)
-      ###EMAIL DISPENSARY
+    @dispensary_application = DispensaryApplication.find(params[:id])    
       respond_to do |format|
-        format.js
+        if @dispensary_application.update(dispensary_application_params)
+          DispensaryMailer.application_confirmation(@dispensary_application).deliver
+          format.html {redirect_to dispensary_applications_url, notice: 'Success! Email sent to dispensary...'}
+        end
       end
-    end
   end
 
   def index

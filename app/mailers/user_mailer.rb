@@ -1,6 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "help@nugdealz.com"
-  require 'rqrcode_png'
+  default from: "team@nugdealz.com"
 
   def signup_confirmation(user)
     @user = user
