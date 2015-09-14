@@ -4,6 +4,8 @@
     %br/
     %table.table.table-hover
       %th
+        ID
+      %th
         Dispensary Name
       %th
         Contact Email
@@ -18,6 +20,8 @@
       %tbody
         - @dispensary_applications.each do |d|
           %tr
+            %td
+              = d.id
             %td
               = d.dispensary_name
             %td
