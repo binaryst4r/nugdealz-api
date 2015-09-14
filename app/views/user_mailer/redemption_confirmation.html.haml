@@ -96,9 +96,10 @@
                                 %tr
                                   %td.header-image{:align => "center", :valign => "top"}
                                     / <img src="https://www.gtrsport.com/assets/gtrlogo-03c943ee8071c1c34fa4ab5a8d15810b.png" width='300px' alt="GTR Sporting Club" />
-                                %tr
+                                %tr.text-center
                                   %td.textContent{:valign => "top"}
-                                    %h4 Your nugdealz redemption details:
+                                    %h4 
+                                      = "Review your details and scan the qr code at #{@redemption.dispensary.name}"
                                     %p
                                       %b Name:
                                       = @user.full_name
@@ -106,6 +107,9 @@
                                       %b Deal:
                                       = @redemption.dispensary.name
                                       \- #{@redemption.deal.title}
+                                    %p
+                                      %b Address
+                                      = @redemption.dispensary.full_address
                                     %p
                                       = image_tag(@redeem_url)
                                     %h4 NugDealz
@@ -115,6 +119,7 @@
                                     %p
                                       If you have questions you can contact us  at
                                       847-767-7656.
+                                    = image_tag asset_path('nugdealz_logo_pink_green.svg'), width: '70px' 
               %tr
                 %td{:align => "center", :valign => "top"}
                   %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}

@@ -133,8 +133,14 @@ select {
 	 color: #a6a6a6 !important;
  }
 
+.badge-pink{
+  background-color: #E56D9A;
+}
 
-
+.badge-pink a{
+  color: white;
+  text-decoration: none;
+}
  #dispensary-header .row{
  	background: url('the-weed-2.jpg')no-repeat center center;
  	min-height: 315px;
@@ -170,7 +176,7 @@ select {
 }
 
 .green{
-	color: #194838 !important;
+	color: #7ED321 !important;
 }
 
 .purple {

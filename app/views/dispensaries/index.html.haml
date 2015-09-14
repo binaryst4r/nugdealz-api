@@ -8,7 +8,7 @@
           .form-group
             = text_field_tag :search, nil, class: 'form-control', placeholder: 'search...'
         .col-md-3
-          = submit_tag 'Search', class: 'btn btn-default'
+          = submit_tag 'Search', class: 'btn btn-pink'
     #search-results.col-md-8.padding-left.border-left
       .row
         .col-md-12
@@ -18,18 +18,21 @@
             Dispensaries matching search: "#{@search}"
       - @dispensaries.each do |d|
         .row.medium-padding-top.medium-padding-bottom.border-bottom
-          .col-md-3
-            = link_to image_tag("default_dispensary.png", class: 'img-responsive'), dispensary_deals_url(d)
-          .col-md-9
-            .col-md-9
-              %h3
-                = link_to d.name, dispensary_deals_url(d)
-              %p
-                - d.available_deals.each do |deal|
-                  %span.badge{"data-placement" => "top", "data-toggle" => "tooltip", :title => "#{deal.description}"}= deal.title
-            .col-md-3.text-center
-              %p.lead
-                - if @location
-                  %br/
-                  = d.distance_to(@location).round(2)
-                  miles away
+          .col-md-2.medium-padding-top
+            = link_to image_tag("default_dispensary.png", class: 'img-responsive thumbnail'), dispensary_deals_url(d)
+            %br
+            %p.lead
+              - if @location
+                %br/
+                = d.distance_to(@location).round(2)
+                miles away
+          .col-md-6            
+            %h3
+              = link_to d.name, dispensary_deals_url(d)
+          .col-md-4.border-left
+            %h3
+              Top Deals
+            %p
+              - d.top_deals.each do |deal|
+                %span.badge.badge-pink{"data-placement" => "top", "data-toggle" => "tooltip", :title => "#{deal.description}"}
+                  = link_to deal.title, confirm_deal_url(deal: deal.id)

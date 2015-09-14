@@ -15,8 +15,12 @@ class Dispensary < ActiveRecord::Base
   has_many :redemptions, dependent: :destroy
   has_many :loyalty_programs, dependent: :destroy
 
-  geocoded_by :zip
+  geocoded_by :full_address
   after_validation :geocode
+
+  def full_address
+    "#{address1}, #{city}, #{state} #{zip}"
+  end
 
   def recreational_or_medical
     if !self.medical.present? && !self.recreational.present?
@@ -31,6 +35,10 @@ class Dispensary < ActiveRecord::Base
 
   def available_deals
     deals.where('quantity_available > 0')
+  end
+
+  def top_deals
+    available_deals.sort_by{|x| x.redemptions.count}.first(5)
   end
 
 
