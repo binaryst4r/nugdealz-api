@@ -8,7 +8,7 @@
           .form-group
             = text_field_tag :search, nil, class: 'form-control', placeholder: 'search...'
         .col-md-3
-          = submit_tag 'Search', class: 'btn btn-pink'
+          = submit_tag 'Search', class: 'btn btn-green'
     #search-results.col-md-8.padding-left.border-left
       .row
         .col-md-12
@@ -26,10 +26,12 @@
                 %br/
                 = d.distance_to(@location).round(2)
                 miles away
-          .col-md-6            
+          .col-md-5            
             %h3
               = link_to d.name, dispensary_deals_url(d)
-          .col-md-4.border-left
+            %p
+              = "#{d.city}, #{d.state}"
+          .col-md-5.border-left
             %h3
               Top Deals
             %p

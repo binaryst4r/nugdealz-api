@@ -9,19 +9,14 @@
     %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
     = tag :meta, name: 'stripe-key', content: STRIPE_PUBLIC_KEY
     = csrf_meta_tags
-    /
-      <haml_silent> if current_page?(root_url) </haml_silent><haml_block>
-      <style type="text/css" media="screen">
-      body{
-      background: url('/assets/a_plant.jpg') no-repeat center center fixed !important;
-      background-size: cover;
-      \-moz-background-size: cover;
-      \-o-background-size: cover;
-      \-webkit-background-size: cover;
-      color: #f6f6f6 !important;
-      }
-      </style>
-      </haml_block>
+  
+    - if current_page?(root_url)
+      %style{type: "text/css", media: "screen"}
+        body{
+        background: url('/assets/symphony.jpg');        
+        
+        }      
+      
   %body
     = render '/layouts/nav'
     - if notice
