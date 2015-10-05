@@ -18,6 +18,14 @@ class Dispensary < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  def balance
+    if redemptions
+      return redemptions.collect{|r| r.deal.price}.inject(:+) / 2
+    else
+      return nil
+    end
+  end
+
   def full_address
     "#{address1}, #{city}, #{state} #{zip}"
   end

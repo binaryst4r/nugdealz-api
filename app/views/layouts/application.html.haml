@@ -7,13 +7,16 @@
     = javascript_include_tag "https://js.stripe.com/v1/",  'application', 'data-turbolinks-track' => true
     %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"}
     %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{href:'https://fonts.googleapis.com/css?family=Telex', rel:'stylesheet', type:'text/css'}
+    %link{href:'https://fonts.googleapis.com/css?family=Varela+Round', rel:'stylesheet', type:'text/css'}
     = tag :meta, name: 'stripe-key', content: STRIPE_PUBLIC_KEY
     = csrf_meta_tags
   
     - if current_page?(root_url)
       %style{type: "text/css", media: "screen"}
         body{
-        background: url('/assets/symphony.jpg');        
+        background: url("assets/home.svg") no-repeat center center fixed;        
+        background-size: cover;
         
         }      
       
@@ -25,3 +28,12 @@
           = notice
     = render '/layouts/modal'
     = yield
+
+    - unless current_page?(root_url)
+      #footer-container
+        .container
+          .row
+            .col-md-3.large-padding-top              
+              =image_tag('nugdealz_logo_pink_green.svg', width: '60%')
+              / Address Info
+

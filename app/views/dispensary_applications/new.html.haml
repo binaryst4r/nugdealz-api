@@ -1,10 +1,11 @@
 .container
-  .row
-    .col-md-6
+  .row.padding-top
+    .col-md-6.col-md-offset-3
       %h2 Market on the only site that pays you!
       %p.lead
         We need some copy here that describes how awesome nugdealz is for dispensaries and why they sohuld use it, etc etc.
-    .col-md-6
+      %br
+      %br
       = form_for @dispensary_application do |f|
         .form-group.col-md-7
           = f.label :dispensary_name
@@ -25,7 +26,7 @@
         .form-group.col-md-6
           = f.label :contact_email
           %br/
-          = f.email_field :contact_email, class: 'form-control', placeholder: "contact's email"
+          = f.email_field :contact_email, class: 'form-control', placeholder: "contact's email"        
         .form-group.col-md-12
           = f.label :phone
           %br/
@@ -50,5 +51,15 @@
           = f.label :zip
           %br/
           = f.text_field :zip, class: 'form-control', placeholder: 'zip'
+        .form-group.col-md-6
+          = f.label :ein, "EIN (employee identification number)"
+          %br/
+          = f.text_field :ein, class: 'form-control', placeholder: "Enter dispensary employee id number"
+        .form-group.col-md-6
+          = f.label :license_number
+          %br/
+          = f.email_field :license_number, class: 'form-control', placeholder: "Enter license number"
         .col-md-12
           = f.submit 'Submit', class: 'btn btn-block btn-pink btn-lg'
+    
+      

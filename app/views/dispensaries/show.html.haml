@@ -1,4 +1,19 @@
 .container
+  .row.padding-bottom.border-bottom
+    .col-md-3.border-right
+      = image_tag('default_dispensary.png', class: 'img-responsive thumbnail')      
+      
+    .col-md-6      
+      %b
+        = @dispensary.name
+      %p
+        = @dispensary.full_address
+    .col-md-3.border-left
+      - if @dispensary.balance
+        %h1.green
+          = number_to_currency(@dispensary.balance)
+      -else
+        %p.lead
+          no deals made yet
   .row
-    .col-md-12
-      = @dispensary.name
+    .col-md-10.col-md-offset-1

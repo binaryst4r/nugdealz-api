@@ -18,3 +18,9 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+$(function(){
+  $('.deal-well').hover(function(){
+    $(this).find("img.highlighter").toggleClass('hidden');
+  });
+})

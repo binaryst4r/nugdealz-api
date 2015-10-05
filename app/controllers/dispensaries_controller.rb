@@ -30,24 +30,18 @@ class DispensariesController < ApplicationController
 			@dispensaries = Dispensary.all
 		end
 
-		if params[:nav_search]
-			@search = params[:nav_search]
-		elsif params[:search]
-			@search = params[:search]
-		else
-			@search = ""
+		if params[:search]
+			@search = params[:search].downcase
+			by_name = @dispensaries.where('lower(name) like ?', "%#{@search}%")
+			by_location  = @dispensaries.near(@search)
+			deals = @dispensaries = Deal.where('lower(description) like ?', "%#{@search}%")
+			by_deals = deals.map{|x| x.dispensary}
+			by_deals = Dispensary.where(id: by_deals.map(&:id))
+
+			result = by_name + by_location + by_deals
+			@dispensaries = result.uniq
+
 		end
-
-		dispensaries = @dispensaries.where('name like ?', "%#{@search}%")
-
-		if params[:location].present?
-			@location = Geocoder.search(params[:location]).first.address
-			@dispensaries = dispensaries.near(@location)
-			@dispensaries.sort_by{|d| d.distance_to(@location)}
-		else
-			@dispensaries = dispensaries
-		end
-
 	end
 
 	def update
@@ -63,7 +57,7 @@ class DispensariesController < ApplicationController
 	private
 
 	def dispensary_params
-		params.require(:dispensary).permit(:name, :email, :address1, :address2, :city, :state, :zip)
+		params.require(:dispensary).permit(:name, :email, :address1, :address2, :ein, :license_number, :city, :state, :zip)
 	end
 
 end

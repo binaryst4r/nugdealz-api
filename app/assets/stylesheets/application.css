@@ -14,8 +14,70 @@
  *= require_self
  */
 
+ .deal-well{
+  background-color: white;
+ }
+
+
+
+ #footer-container{
+  margin-top: 80px;
+  min-height: 250px;
+  background-color: #000;  
+  padding-top: 50px;
+}
+
+ .list-well{
+  height: 300px;
+  background: url("/assets/default_dispensary.jpg") no-repeat center center; 
+  color: #f6f6f6 !important;
+  padding: 150px 10px 0px 20px;
+  cursor: pointer;
+ }
+
+ .list-well h4{
+
+  text-transform: uppercase; !important;
+ }
+
+ #search-bar{
+  min-height: 70px;
+  background-color: #293960;
+  margin-top: -20px;
+
+ }
+
+ #search-bar form{
+  padding-top: 15px;
+ }
+
+ .navbar-white{
+  background-color: rgb(255,255,255);
+
+ }
+
+ .navbar-white .navbar-nav > li > a {
+  color: #a6a6a6;
+}
+
+ .white{
+  color: #f6f6f6 !important;
+ }
+
+
+.welcome-form{
+  color: #E56D9A;
+}
+
 #welcome-jumbo{
-	height: 80vh;
+	height: 75vh;
+  padding-top: 150px;
+}
+
+#welcome-jumbo h1{
+  font-size: 55px;
+  line-height: 50px;
+  color: #f6f6f6 !important;
 }
 
  .dispensary-well{
@@ -64,9 +126,7 @@
 select {
   width: 100% !important;
   border: 1px solid #cccccc !important;
-  background-color: #ffffff !important;
-  height: 34px !important;
-  color: #474747;
+  background-color: #ffffff !important;    
 
 }
 
@@ -92,10 +152,17 @@ select {
  }
 
  .point-value{
- 	font-size: 48px;
+ 	font-size: 32px;
  	color: #4a4a4a;
  	line-height: 1em;
 
+ }
+
+ .btn-clear-pink{
+  background: rgba(255,255,255, 0.79);
+  border: 2px solid #E56D9A;
+  color: #E56D9A;
+  border-radius: 4px;
  }
 
  .btn-clear-white{
@@ -142,15 +209,11 @@ select {
   text-decoration: none;
 }
  #dispensary-header .row{
-   	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4e391+0,7ed321+50,b4e391+100 */
-  background: rgb(180,227,145); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(180,227,145,1) 0%, rgba(126,211,33,1) 50%, rgba(180,227,145,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(180,227,145,1)), color-stop(50%,rgba(126,211,33,1)), color-stop(100%,rgba(180,227,145,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(126,211,33,1) 50%,rgba(180,227,145,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(126,211,33,1) 50%,rgba(180,227,145,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(126,211,33,1) 50%,rgba(180,227,145,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(180,227,145,1) 0%,rgba(126,211,33,1) 50%,rgba(180,227,145,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
+  background: url('THChealth.jpg')no-repeat center center;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+
  	min-height: 315px;
  	padding-top: 10%;
  	border-bottom: 1px solid #dddddd;
@@ -201,6 +264,12 @@ select {
 
 .medium-padding-top{
 	padding-top: 20px;
+}
+
+
+.highlighter{
+  margin-top: -20px;
+  margin-right: -17px;
 }
 
 

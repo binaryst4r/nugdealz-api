@@ -46,6 +46,6 @@ class DispensaryApplicationsController < ApplicationController
   private
 
   def dispensary_application_params
-    params.require(:dispensary_application).permit(:dispensary_name, :address1, :address2, :city, :state, :zip, :contact_name, :contact_email, :phone, :recreational, :medical, :verified)
+    params.require(:dispensary_application).permit(:dispensary_name, :address1, :address2, :city, :state, :zip, :contact_name, :contact_email, :phone, :recreational, :medical, :ein, :license_number, :verified)
   end
 end

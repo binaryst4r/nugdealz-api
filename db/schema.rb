@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "leafly_slug"
+    t.string   "ein"
+    t.string   "license_number"
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
@@ -70,6 +72,8 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.boolean  "medical",         default: false
     t.boolean  "recreational",    default: false
     t.boolean  "verified",        default: false
+    t.string   "ein"
+    t.string   "license_number"
   end
 
   create_table "loyalty_programs", force: true do |t|

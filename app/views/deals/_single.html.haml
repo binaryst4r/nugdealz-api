@@ -1,17 +1,20 @@
 .row
-  .col-md-8.col-md-offset-2.left-right-border
+  .col-md-8.col-md-offset-2.padding-top
     - @dispensary.deals.each do |deal|
-      .row.border-bottom.padding-top
-        %h3.text-center= deal.title
-        .col-md-2.text-center
+      .row.deal-well
+        .col-md-2.text-center.padding-top
           %p
             %span.point-value= deal.point_value
             %br/
             points
-        .col-md-8
+        .col-md-10.border-left.medium-padding-top
+          =image_tag 'highlight.png', class: 'pull-right highlighter hidden'
           %p.lead
+            %b= deal.title
+            %br          
             = deal.description
-            %b
-              (#{deal.quantity_available} left)
-        .col-md-2
-          = link_to 'Redeem', confirm_deal_url(deal: deal.id), class: 'btn btn-default btn-block'
+            %br
+            = link_to "#{deal.quantity_available} left", confirm_deal_url(deal: deal.id), class: 'btn btn-clear-pink'
+            = link_to 'Redeem', confirm_deal_url(deal: deal.id), class: 'btn btn-green'
+        
+          

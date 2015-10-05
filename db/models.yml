@@ -34,6 +34,8 @@ Dispensary
   latitude: float
   longitude: float
   leafly_slug
+  ein
+  license_number
 
 DispensaryApplications
   dispensary_name
@@ -50,6 +52,8 @@ DispensaryApplications
   medical: boolean
   recreational: boolean
   verified: boolean
+  ein
+  license_number
 
 LoyaltyProgram
   user_id
