@@ -33,6 +33,7 @@ Dispensary
   medical: boolean
   latitude: float
   longitude: float
+  balance: decimal(0.00)
   leafly_slug
   ein
   license_number
@@ -54,19 +55,6 @@ DispensaryApplications
   verified: boolean
   ein
   license_number
-
-LoyaltyProgram
-  user_id
-  dispensary_id
-  created_at
-  updated_at
-
-PointBucket
-  user_id
-  loyalty_program_id
-  value: float
-  created_at
-  updated_at
 
 Redemption
   user_id
@@ -93,6 +81,7 @@ User
   updated_at
   admin: boolean
   stripe_customer_token
+  nugdealz_points: decimal(0.00)
 
 Payment
   user_id: integer

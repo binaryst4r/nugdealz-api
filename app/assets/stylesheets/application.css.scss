@@ -29,15 +29,19 @@
 
  .list-well{
   height: 300px;
-  background: url("/assets/default_dispensary.jpg") no-repeat center center; 
+  background: asset-data-url("default_dispensary.jpg") no-repeat center center; 
   color: #f6f6f6 !important;
   padding: 150px 10px 0px 20px;
   cursor: pointer;
  }
 
  .list-well h4{
-
   text-transform: uppercase !important;
+ }
+
+ .list-well a{
+
+  color: #f6f6f6;
  }
 
  #search-bar{
@@ -208,8 +212,8 @@ select {
   color: white;
   text-decoration: none;
 }
- #dispensary-header .row{
-  background: url('THChealth.jpg')no-repeat center center;
+ #dispensary-header{
+  background: asset-data-url('THChealth.jpg')no-repeat center center;
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;

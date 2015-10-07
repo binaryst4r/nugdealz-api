@@ -13,18 +13,10 @@ class Dispensary < ActiveRecord::Base
 
   has_many :deals, dependent: :destroy
   has_many :redemptions, dependent: :destroy
-  has_many :loyalty_programs, dependent: :destroy
 
   geocoded_by :full_address
   after_validation :geocode
 
-  def balance
-    if redemptions
-      return redemptions.collect{|r| r.deal.price}.inject(:+) / 2
-    else
-      return nil
-    end
-  end
 
   def full_address
     "#{address1}, #{city}, #{state} #{zip}"
@@ -36,9 +28,11 @@ class Dispensary < ActiveRecord::Base
     end
   end
 
-  def reduce_quantity_for(deal)
+  def complete_order_for(deal)
     deal.quantity_available -= 1
     deal.save
+    self.balance += (deal.price*0.5)
+    self.save
   end
 
   def available_deals

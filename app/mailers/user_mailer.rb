@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "team@nugdealz.com"
+  default from: "\"nugdealz team\" <info@nugdealz.com>"
 
   def signup_confirmation(user)
     @user = user

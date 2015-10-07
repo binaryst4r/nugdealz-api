@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "leafly_slug"
     t.string   "ein"
     t.string   "license_number"
+    t.decimal  "balance",                default: 0.0
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
@@ -76,13 +77,6 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "license_number"
   end
 
-  create_table "loyalty_programs", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "dispensary_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "payments", force: true do |t|
     t.integer  "user_id"
     t.integer  "amount"
@@ -91,14 +85,6 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "card_last_4"
     t.string   "card_brand"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "point_buckets", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "loyalty_program_id"
-    t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,6 +124,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.boolean  "admin",                  default: false
     t.string   "stripe_customer_token"
     t.integer  "sign_in_count",          default: 0
+    t.decimal  "nugdealz_points",        default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

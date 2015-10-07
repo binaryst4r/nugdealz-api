@@ -8,12 +8,12 @@
             %br/
             points
         .col-md-10.border-left.medium-padding-top
-          =image_tag 'highlight.png', class: 'pull-right highlighter hidden'
-          %p.lead
+          =image_tag 'highlight.png', class: 'pull-right highlighter'
+          %b.lead
             %b= deal.title
-            %br          
+          %p          
             = deal.description
-            %br
+          %p
             = link_to "#{deal.quantity_available} left", confirm_deal_url(deal: deal.id), class: 'btn btn-clear-pink'
             = link_to 'Redeem', confirm_deal_url(deal: deal.id), class: 'btn btn-green'
         

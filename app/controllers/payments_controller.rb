@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       if @payment.save_with_payment
         Redemption.create(user_id: user_id, deal_id: deal_id, dispensary_id: dispensary_id)
-        @dispensary.reduce_quantity_for(@deal)
+        @dispensary.complete_order_for(@deal)
         format.html { redirect_to user_url(@user), notice: 'You have successfully redeemed your deal, check your email for instructions.'}
         format.json { render :show, status: :created, location: @payment }
       else
