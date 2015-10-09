@@ -20,15 +20,7 @@ class DispensariesController < ApplicationController
   end
 
 	def index
-		if params[:filter]
-			if params[:filter] == 'recreational'
-				@dispensaries = Dispensary.recreational
-			elsif params[:filter] == 'medical'
-				@dispensaries = Dispensary.medical
-			end
-		else
-			@dispensaries = Dispensary.all
-		end
+		@dispensaries = Dispensary.order('name asc')
 
 		if params[:search]
 			@search = params[:search].downcase

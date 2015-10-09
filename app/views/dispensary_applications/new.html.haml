@@ -7,18 +7,12 @@
       %br
       %br
       = form_for @dispensary_application do |f|
-        .form-group.col-md-7
+        = f.hidden_field :recreational, value: true
+        .form-group.col-md-12
           = f.label :dispensary_name
           %br/
           = f.text_field :dispensary_name, class: 'form-control', placeholder: 'enter dispensary name'
-        .col-md-3
-          = f.label :recreational
-          %br/
-          = f.check_box :recreational
-        .col-md-2
-          = f.label :medical
-          %br/
-          = f.check_box :medical
+        
         .form-group.col-md-6
           = f.label :contact_name
           %br/

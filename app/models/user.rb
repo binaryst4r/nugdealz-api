@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def favorite_dispensaries
-    dispensaries.sort_by{|d| self.redemptions.where(dispensary_id: d.id).count}
+    dispensaries.sort_by{|d| self.redemptions.where(dispensary_id: d.id).count}.reverse.first(5)
   end
 
   def full_name

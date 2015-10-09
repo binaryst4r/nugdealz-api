@@ -1,7 +1,7 @@
-.container-fluid
+.container
   #welcome-jumbo.jumbotron
     .row
-      .col-md-7.col-md-offset-4.text-left
+      .col-md-9.col-md-offset-3.text-left
         .col-md-12                  
           %h1
             Welcome to
@@ -9,13 +9,12 @@
             nugdealz
           %br
           %p.lead.white
-            Exclusive, premium cannabis deals around you.
+            Exclusive, premium cannabis deals around you.            
             %br
-            Just search and start browsing.
-        .col-md-3
-          = select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control welcome-form'
+            Just search and start browsing. #{link_to 'Learn More', '#', class: 'pink'} 
+          / = select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control welcome-form'
         = form_tag dispensaries_url, method: 'get' do
-          .col-md-6
+          .col-md-9
             = text_field_tag :location, nil, class: 'form-control welcome-form', placeholder: 'address, city, state or zip'
             %br/
           .col-md-3

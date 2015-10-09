@@ -17,7 +17,7 @@
         body{
         background: url("#{asset_path('home.svg')}") no-repeat center center fixed;        
         background-size: cover;
-        
+        background-position-y: 60px;
         }      
       
   %body
@@ -33,7 +33,11 @@
       #footer-container
         .container
           .row
-            .col-md-3.large-padding-top              
-              =image_tag('nugdealz_logo_pink_green.svg', width: '60%')
+            .col-md-3
+              =image_tag('astroman.png', width: '70%')
               / Address Info
+            .col-md-6.text-center.padding-top
+              %p.lead.green
+                Start redeeming dealz now
+            .col-md-3
 

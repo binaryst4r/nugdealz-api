@@ -14,8 +14,13 @@
  *= require_self
  */
 
+ .nav-image{
+  width: 140px;
+ }
+
  .deal-well{
   background-color: white;
+  margin-bottom: 20px;
  }
 
 
@@ -74,8 +79,8 @@
 }
 
 #welcome-jumbo{
-	height: 75vh;
-  padding-top: 150px;
+	height: 73vh;
+  padding-top: 175px;
 }
 
 #welcome-jumbo h1{
