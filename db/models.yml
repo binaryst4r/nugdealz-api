@@ -17,6 +17,9 @@ Dispensary
   city
   state
   zip
+  phone
+  logo
+  cover_image
   created_at
   updated_at
   email

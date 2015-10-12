@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-md-12
+      %h2 Viewing Dispensaries
+      %br/
+      %table.table.table-hover
+        %th
+          ID
+        %th
+          Dispensary Name
+        %th
+          Contact Email                
+        %th
+          Address
+        %th
+          
+        %tbody
+          - @dispensaries.each do |d|
+            %tr
+              %td
+                = d.id
+              %td
+                = d.name
+              %td
+                = d.email               
+              %td
+                = d.full_address
+              %td
+                = link_to 'edit', edit_admin_dispensary_url(d)

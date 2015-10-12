@@ -14,9 +14,19 @@ class Dispensary < ActiveRecord::Base
   has_many :deals, dependent: :destroy
   has_many :redemptions, dependent: :destroy
 
+  before_save :link_leafly, if: :leafly_slug_changed?
   geocoded_by :full_address
   after_validation :geocode
 
+  def link_leafly
+    app_id = "b42999e4"
+    app_key = "1c49dab735a206ea5f16c78dd6c53c65"
+    slug = self.leafly_slug
+    leafly_dispensary = HTTParty.get("http://data.leafly.com/locations/#{slug}", {headers:{"app_id" => app_id, "app_key" => app_key}})
+    self.logo = leafly_dispensary["logo"]
+    cover_image = leafly_dispensary["coverPhoto"]
+    
+  end
 
   def full_address
     "#{address1}, #{city}, #{state} #{zip}"

@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "ein"
     t.string   "license_number"
     t.decimal  "balance",                default: 0.0
+    t.string   "phone"
+    t.string   "logo"
+    t.string   "cover_image"
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true

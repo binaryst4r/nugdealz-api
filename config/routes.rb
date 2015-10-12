@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#welcome'
   
   namespace :admin do 
+    resources :dispensaries
     get 'dashboard' => 'pages#dashboard', as: 'dashboard'
   end
   
