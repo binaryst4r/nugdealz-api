@@ -11,6 +11,10 @@
                 = @dispensary.address2
               = @dispensary.city
               , #{@dispensary.state} #{@dispensary.zip}
+        - if current_dispensary && current_dispensary == @dispensary
+          = link_to '<i class="fa fa-plus"></i> Add a Deal'.html_safe, new_dispensary_deal_url(@dispensary), class: 'btn btn btn-green'
+          = link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe, dispensary_url(@dispensary), class: 'btn btn btn-default'
+
 #deals.container
   - if @dispensary.recreational && @dispensary.medical
     = render 'hybrid'

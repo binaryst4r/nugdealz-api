@@ -13,6 +13,7 @@ class Dispensary < ActiveRecord::Base
 
   has_many :deals, dependent: :destroy
   has_many :redemptions, dependent: :destroy
+  has_many :loyalty_programs, dependent: :destroy
 
   before_save :link_leafly, if: :leafly_slug_changed?
   geocoded_by :full_address

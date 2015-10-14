@@ -1,14 +1,4 @@
-#search-bar
-  .container
-    .row
-      .col-md-2
-        %h3.white
-          Search Again
-      = form_tag '/dispensaries', method: 'get' do
-        .col-md-3
-          = text_field_tag :search, nil, placeholder: 'Address, city, state', class: 'form-control'
-        .col-md-1
-          =submit_tag 'Search', class: 'btn btn-green'
+= render '/layouts/search_bar'
 
 .container
   .row

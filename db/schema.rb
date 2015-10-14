@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.integer  "dispensary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "price"
+    t.decimal  "price",              default: 0.0
     t.boolean  "medical",            default: false
     t.boolean  "recreational",       default: false
   end
@@ -80,6 +80,16 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "license_number"
   end
 
+  create_table "loyalty_programs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "dispensary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "loyalty_programs", ["dispensary_id"], name: "index_loyalty_programs_on_dispensary_id"
+  add_index "loyalty_programs", ["user_id"], name: "index_loyalty_programs_on_user_id"
+
   create_table "payments", force: true do |t|
     t.integer  "user_id"
     t.integer  "amount"
@@ -91,6 +101,17 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "point_buckets", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "loyalty_program_id"
+    t.decimal  "value",              default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "point_buckets", ["loyalty_program_id"], name: "index_point_buckets_on_loyalty_program_id"
+  add_index "point_buckets", ["user_id"], name: "index_point_buckets_on_user_id"
 
   create_table "redemptions", force: true do |t|
     t.integer  "user_id"

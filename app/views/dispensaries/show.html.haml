@@ -1,15 +1,14 @@
 .container
   .row.padding-bottom.border-bottom
     .col-md-3.border-right
-      = image_tag(@dispensary.cover_image, class: 'img-responsive thumbnail')      
-      
+      = image_tag(@dispensary.logo, class: 'img-responsive thumbnail') 
     .col-md-6      
       %b
         = @dispensary.name
       %p
         = @dispensary.full_address
     .col-md-3.border-left
-      - if @dispensary.balance
+      - if @dispensary.redemptions.present?
         %h1.green
           = number_to_currency(@dispensary.balance)
       -else

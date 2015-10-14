@@ -1,26 +1,33 @@
+= render '/layouts/search_bar'
 .container
-  .row.border-bottom.medium-padding-bottom
-    .col-md-4
+  .row.border-bottom.medium-padding-bottom.padding-top
+    .col-md-5
+      %p.nugdealz-points.green
+        = @user.nugdealz_points
       %h2
         = @user.full_name
         %br/
         %small= @user.email
       = link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_user_url(@user), class: 'btn btn-xs btn-default'
-    .col-md-6.border-left
+    
+    .col-md-7.border-left
       %h3 Favorite Dispensaries
       %br/
       - if @user.favorite_dispensaries.present?
         - @user.favorite_dispensaries.each do |d|
           .col-md-10
             %span.lead
-              = link_to d.name, dispensary_deals_url(d)            
+              = link_to d.name, dispensary_deals_url(d)
+            .progress
+              .progress-bar.progress-bar-green{"aria-valuemax" => "420", "aria-valuemin" => "0", "aria-valuenow" => "#{@user.loyalty_points_for(d)}", :role => "progressbar", :style => "width: #{@user.point_progress_for(d)}%"}
+          .col-md-2
+            %p.progress-bar-points
+              = @user.loyalty_points_for(d).round
+              %i.fa.fa-fire
       - else
         %p
           %em
             You have no favorites yet, #{link_to "let's fix that!", dispensaries_url}
-    .col-md-2
-      %p.point-value.text-center.green
-        = @user.nugdealz_points
   .row
     .col-md-12
       %h3 Recent orders
@@ -33,6 +40,8 @@
         %th
           Deal
         %th
+          Date Purchased
+        %th
           Status
         %tbody
           - @user.redemptions.each do |r|
@@ -43,6 +52,8 @@
                 = link_to r.dispensary.name, dispensary_deals_url(r.dispensary)
               %td
                 = r.deal.description
+              %td
+                = r.created_at.strftime('%m/%d/%y')
               %td
                 - if r.redeemed
                   %span.green Redeemed!

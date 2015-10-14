@@ -24,3 +24,5 @@ $(function(){
     $(this).find("img.highlighter").toggleClass('hidden');
   });
 })
+
+

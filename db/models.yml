@@ -6,7 +6,7 @@ Deal
   dispensary_id: integer
   created_at
   updated_at
-  price: float
+  price: decimal(0.00)
   medical: boolean
   recreational: boolean
 
@@ -64,6 +64,19 @@ Redemption
   deal_id
   dispensary_id
   redeemed: boolean
+  created_at
+  updated_at
+
+LoyaltyProgram
+  user_id
+  dispensary_id
+  created_at
+  updated_at
+
+PointBucket
+  user_id
+  loyalty_program_id
+  value: decimal(0.00)
   created_at
   updated_at
 
