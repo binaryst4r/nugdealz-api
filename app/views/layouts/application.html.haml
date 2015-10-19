@@ -33,11 +33,24 @@
       #footer-container
         .container
           .row
-            .col-md-3
+            .col-md-3.col-md-offset-1.text-center
               =image_tag('astroman.png', width: '70%')
               / Address Info
-            .col-md-6.text-center.padding-top
-              %p.lead.green
+            .col-md-4.text-center.padding-top
+              %p.lead.pink
                 Start redeeming dealz now
-            .col-md-3
+            .col-md-3.text-center
+              %ul.unstyled
+                %li
+                  =link_to 'Browse'
+                %li
+                  =link_to 'Sell on Nugdealz', new_dispensary_application_url
+                %li
+                  =link_to 'How It Works'
+                - if !current_user.present?
+                  %li
+                    =link_to 'Sign In', new_user_session_url
+                  %li
+                    =link_to 'Sign Up', new_user_registration_url
+
 

@@ -14,6 +14,14 @@
  *= require_self
  */
 
+ ul.unstyled{
+  list-style-type: none;
+ }
+
+ #footer-container a{
+  color: #7ED321;
+ }
+
  .nav-image{
   width: 140px;
  }

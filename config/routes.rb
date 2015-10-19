@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/get-started' => 'pages#get_started', as: 'get_started'
   get '/support' => 'pages#support', as: 'support'
   get '/confirm_deal' => 'pages#confirm_deal', as: 'confirm_deal'
+  get '/contact' => 'pages#contact', as: 'contact'
   
   
   ######## HOOKS ###############################################

@@ -11,7 +11,7 @@
           %p.lead.white
             Exclusive, premium cannabis deals around you.            
             %br
-            Just search and start browsing. #{link_to 'Learn More', '#', class: 'pink'} 
+            Just search and start browsing. #{link_to 'Learn More', how_it_works_url, class: 'pink'} 
           / = select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control welcome-form'
         = form_tag dispensaries_url, method: 'get' do
           .col-md-9
@@ -21,7 +21,7 @@
             = submit_tag 'search', class: 'btn btn-green btn-block'
 %nav
   %center
-    = link_to 'support', '#', class: 'gray'
+    = link_to 'contact us', contact_url, class: 'gray'
     |
     \#{link_to 'dispensary application', new_dispensary_application_url, class: 'gray'}
     |

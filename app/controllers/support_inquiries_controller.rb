@@ -1,5 +1,13 @@
 class SupportInquiriesController < ApplicationController
   def create
+    @support_inquiry = SupportInquiry.new(support_inquiry_params)
+    respond_to do |format|
+      if @support_inquiry.save
+        format.html {redirect_to root_url, notice: 'Thanks for reaching out. We will review and contact you shortly.'}
+      else
+        format.html {redirect_to root_url, notice: 'Sorry something went wrong on that one.'}
+      end
+    end
   end
 
   def update

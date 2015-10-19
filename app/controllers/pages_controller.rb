@@ -26,7 +26,8 @@ end
 #     end
 #   end
 
-  def support
+
+  def contact
     @support_inquiry = SupportInquiry.new
   end
 

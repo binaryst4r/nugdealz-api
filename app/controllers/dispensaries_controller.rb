@@ -1,6 +1,19 @@
 class DispensariesController < ApplicationController
+
+  before_filter :authenticate_dispensary!, only: [:show, :update, :edit]
+  before_filter :authorize_dispensary, only: [:show, :update, :edit]
+
+  def authorize_dispensary
+    dispensary = Dispensary.find(params[:id])
+    if current_dispensary != dispensary
+      redirect_to root_url, notice: "Hey! You can't do that"
+    end
+  end
+
 	def show
 		@dispensary = Dispensary.find(params[:id])
+    @deals = @dispensary.deals
+    @redemptions = @dispensary.redemptions
 	end
 
 	def edit

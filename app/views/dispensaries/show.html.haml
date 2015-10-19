@@ -2,6 +2,9 @@
   .row.padding-bottom.border-bottom
     .col-md-3.border-right
       = image_tag(@dispensary.logo, class: 'img-responsive thumbnail') 
+      %p
+        = link_to 'Edit Dispensary', '#', class: 'btn btn-default btn-xs'
+        = link_to 'Manage Deals', '#', class: 'btn btn-pink btn-xs'
     .col-md-6      
       %b
         = @dispensary.name
@@ -13,6 +16,16 @@
           = number_to_currency(@dispensary.balance)
       -else
         %p.lead
-          no deals made yet
+          No deals made yet
   .row
     .col-md-10.col-md-offset-1
+      %h2 Deals Made
+      %table.table.table-bordered
+        %th
+          Time
+        %th
+          User
+        %th
+          Redeemed
+        %th
+        %tbody
