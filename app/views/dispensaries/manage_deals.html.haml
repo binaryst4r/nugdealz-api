@@ -25,6 +25,9 @@
   .row
     .col-md-10.col-md-offset-1
       %h2 Manage Deals
+      = link_to '<i class="fa fa-plus"></i> Add Deal'.html_safe, new_dispensary_deal_url, class: 'btn btn-green'
+      %br
+      %br
       %table.table.table-bordered
         %th{width: '10%'}
           Deals Made
@@ -56,6 +59,6 @@
               %td
                 = d.active
               %td
-                = link_to 'Edit', edit_deal_url(d), class: 'btn btn-default', remote: true 
+                = link_to 'Edit', edit_dispensary_deal_url(d), class: 'btn btn-default', remote: true 
               %td
                 = link_to 'Delete', '#', class: 'btn btn-default'              
