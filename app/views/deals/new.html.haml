@@ -27,12 +27,9 @@
           %br/
           = f.number_field :quantity_available, class: 'form-control'
         .form-group.col-md-6
-          = f.label :recreational
-          %br/
-          = f.check_box :recreational
+          = f.label :active?
         .form-group.col-md-6
-          = f.label :medical
-          %br/
-          = f.check_box :medical
+          = f.check_box :active, {}, class: 'form-control'
+
         .col-md-12
           = f.submit 'Save', class: 'btn btn-green'

@@ -26,6 +26,8 @@ class DealsController < ApplicationController
   end
 
   def edit
+    @deal = Deal.find(params[:id])
+    respond_to :js
   end
 
   def update

@@ -10,6 +10,11 @@ class DispensariesController < ApplicationController
     end
   end
 
+  def manage_deals
+    @dispensary = Dispensary.find(params[:dispensary_id])
+    @deals = @dispensary.deals
+  end
+
 	def show
 		@dispensary = Dispensary.find(params[:id])
     @deals = @dispensary.deals

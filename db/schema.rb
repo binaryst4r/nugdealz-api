@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.decimal  "price",              default: 0.0
     t.boolean  "medical",            default: false
     t.boolean  "recreational",       default: false
+    t.boolean  "active",             default: true
   end
 
   create_table "dispensaries", force: true do |t|
@@ -80,6 +81,18 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "license_number"
   end
 
+  create_table "dispensary_rewards", force: true do |t|
+    t.string   "title"
+    t.decimal  "price",         default: 0.0
+    t.integer  "dispensary_id"
+    t.boolean  "active",        default: false
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dispensary_rewards", ["dispensary_id"], name: "index_dispensary_rewards_on_dispensary_id"
+
   create_table "loyalty_programs", force: true do |t|
     t.integer  "user_id"
     t.integer  "dispensary_id"
@@ -89,6 +102,15 @@ ActiveRecord::Schema.define(version: 20150519133147) do
 
   add_index "loyalty_programs", ["dispensary_id"], name: "index_loyalty_programs_on_dispensary_id"
   add_index "loyalty_programs", ["user_id"], name: "index_loyalty_programs_on_user_id"
+
+  create_table "nugdealz_rewards", force: true do |t|
+    t.string   "title"
+    t.string   "price"
+    t.string   "active"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payments", force: true do |t|
     t.integer  "user_id"
@@ -123,10 +145,12 @@ ActiveRecord::Schema.define(version: 20150519133147) do
   end
 
   create_table "support_inquiries", force: true do |t|
-    t.string  "email"
-    t.string  "subject"
-    t.integer "user_id"
-    t.text    "message"
+    t.string   "email"
+    t.string   "subject"
+    t.integer  "user_id"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "support_inquiries", ["user_id"], name: "index_support_inquiries_on_user_id"

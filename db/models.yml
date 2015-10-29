@@ -4,11 +4,12 @@ Deal
   fine_print: text
   quantity_available: integer
   dispensary_id: integer
+  active: boolean(true)
   created_at
   updated_at
   price: decimal(0.00)
-  medical: boolean
-  recreational: boolean
+  medical: boolean(false)
+  recreational: boolean(true)
 
 Dispensary
   name
@@ -115,3 +116,22 @@ SupportInquiry
   subject
   user_id: integer
   message: text
+  created_at
+  updated_at
+
+DispensaryReward
+  title
+  price: decimal(0.00)
+  dispensary_id: integer
+  active: boolean
+  image
+  created_at
+  updated_at
+
+NugdealzReward
+  title
+  price
+  active
+  image
+  created_at
+  updated_at

@@ -26,6 +26,10 @@ end
 #     end
 #   end
 
+  def dispensary_information
+    
+  end
+
 
   def contact
     @support_inquiry = SupportInquiry.new

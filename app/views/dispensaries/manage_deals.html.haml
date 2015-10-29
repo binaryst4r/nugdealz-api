@@ -24,13 +24,38 @@
           No deals made yet
   .row
     .col-md-10.col-md-offset-1
-      %h2 Deals Made
+      %h2 Manage Deals
       %table.table.table-bordered
+        %th{width: '10%'}
+          Deals Made
         %th
-          Time
+          Title
         %th
-          User
+          Description
         %th
-          Redeemed
+          Fine Print
         %th
+          Quantity
+        %th
+          Active?
+        %th
+        %th        
         %tbody
+          - @deals.each do |d|
+            %tr
+              %td
+                = @dispensary.deals_made_for(d)
+              %td
+                = d.title
+              %td
+                = d.description
+              %td
+                = d.fine_print
+              %td
+                = d.quantity_available
+              %td
+                = d.active
+              %td
+                = link_to 'Edit', edit_deal_url(d), class: 'btn btn-default', remote: true 
+              %td
+                = link_to 'Delete', '#', class: 'btn btn-default'              

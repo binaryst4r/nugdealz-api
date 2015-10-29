@@ -29,6 +29,10 @@ class Dispensary < ActiveRecord::Base
     
   end
 
+  def deals_made_for(deal)
+    redemptions.where(deal_id: deal.id).count
+  end
+
   def full_address
     "#{address1}, #{city}, #{state} #{zip}"
   end

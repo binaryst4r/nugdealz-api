@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   ##### STATIC PAGES #############
 
   get '/how-it-works' => 'pages#how_it_works', as: 'how_it_works'
+  get '/dispensary_information' => 'pages#dispensary_information', as: 'dispensary_information'
   get '/get-started' => 'pages#get_started', as: 'get_started'
   get '/support' => 'pages#support', as: 'support'
   get '/confirm_deal' => 'pages#confirm_deal', as: 'confirm_deal'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   resources :dispensaries do
     resources :deals
     get '/menu' => 'dispensaries#menu', as: 'menu'
+    get '/manage_deals' => 'dispensaries#manage_deals', as: 'manage_deals' 
   end
 
 

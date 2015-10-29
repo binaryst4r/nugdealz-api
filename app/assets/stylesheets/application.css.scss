@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+
  ul.unstyled{
   list-style-type: none;
  }
@@ -205,6 +207,14 @@ select {
  	color: #f6f6f6;
  	border-radius: 4px;
  }
+
+ .btn-blue{
+  background-color: #293960;
+  color: #f6f6f6;
+  border-radius: 4px;
+ }
+
+ 
 
  .btn-purple{
    background-color: #24214b;
