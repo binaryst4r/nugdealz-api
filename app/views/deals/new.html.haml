@@ -2,7 +2,7 @@
   .row
     .col-md-6
       %h3 Create a Deal
-      %p.lead Some information about creating a deal. Maybe to help these poor people out damnnn.
+      %p.lead Use the form to the right to create your deal. Remember, these deals should be the best deals you can offer. We want customers to spread the word!
     .col-md-5.col-md-offset-1
       = form_for [@dispensary, @deal] do |f|
         = f.hidden_field :dispensary_id, value: @dispensary.id

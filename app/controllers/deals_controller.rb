@@ -25,12 +25,22 @@ class DealsController < ApplicationController
     end
   end
 
-  def edit
+  def edit    
     @deal = Deal.find(params[:id])
-    respond_to :js
+    @dispensary = @deal.dispensary
+    respond_to :js, :html
   end
 
   def update
+    @deal = Deal.find(params[:id])
+
+    respond_to do |format|
+      if @deal.update(deal_params)
+        format.html {redirect_to dispensary_manage_deals_url(@deal.dispensary, @deal), notice: 'Deal Successfully Updated.'}
+      else
+        format.html {redirect_to :back, notice: "Something didn't work there"}
+      end
+    end
   end
 
   def destroy

@@ -23,14 +23,38 @@
         %p.lead
           No deals made yet
   .row
-    .col-md-10.col-md-offset-1
-      %h2 Deals Made
+    .col-md-4.border-right
+      %h2 Active Deals
+      - @dispensary.deals.active.each do |d|
+        .col-md-12.well
+          %p
+            %span.lead
+              = d.title
+              = link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_dispensary_deal_url(@dispensary, d), class: 'pull-right'
+            %br          
+            = d.description
+            %br
+            =number_to_currency(d.price)
+    .col-md-6.col-md-offset-1
+      %h2 Incoming Deals #{link_to 'View All', dispensary_manage_deals_url(@dispensary), class: 'btn btn-default pull-right'}
+      %br
       %table.table.table-bordered
         %th
           Time
         %th
           User
         %th
-          Redeemed
-        %th
+          Redeemed        
         %tbody
+          - @dispensary.redemptions.each do |r|
+            %tr
+              %td{width: '15%'}
+                = r.created_at.strftime("%m/%d/%y at %l:%M %p")
+              
+              %td
+                = r.user.full_name
+              %td
+                - if r.redeemed
+                  = "Redeemed at #{r.updated_at.strftime('%m/%d/%y at %l:%M %p')}"
+                - else
+                  = r.redeemed

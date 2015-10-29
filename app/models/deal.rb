@@ -5,7 +5,8 @@ class Deal < ActiveRecord::Base
 
 
 	scope :recreational, -> {where(recreational: true)}
-	scope :medical, -> {where(medical: true)}
+  scope :medical, -> {where(medical: true)}
+	scope :active, -> {where(active: true)}
 
 	def point_value
 		(price * 4.20).round(0)

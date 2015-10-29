@@ -23,6 +23,8 @@
         %p.lead
           No deals made yet
   .row
+    .col-md-12.medium-padding-top
+      =link_to '<i class="fa fa-angle-double-left"></i> Back to Dispensary Home'.html_safe, dispensary_url(@dispensary)
     .col-md-10.col-md-offset-1
       %h2 Manage Deals
       = link_to '<i class="fa fa-plus"></i> Add Deal'.html_safe, new_dispensary_deal_url(@dispensary), class: 'btn btn-green'
@@ -49,7 +51,7 @@
           - @deals.each do |d|
             %tr
               %td
-                = @dispensary.deals_made_for(d)
+                = @dispensary.deals_made_for(d)                
               %td
                 = number_to_currency(d.price)
               %td
