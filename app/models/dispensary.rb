@@ -46,7 +46,7 @@ class Dispensary < ActiveRecord::Base
   def complete_order_for(deal)
     deal.quantity_available -= 1
     deal.save
-    self.balance += (deal.price*0.5)
+    self.balance += (deal.price*0.7)
     self.save
   end
 

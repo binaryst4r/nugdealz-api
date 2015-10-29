@@ -17,7 +17,7 @@ class Redemption < ActiveRecord::Base
 
     ### DISPENSARY LOYALTY ##############################
     loyalty_program = user.loyalty_program_for(deal.dispensary)
-    bucket_value = (deal.price.round(0))
+    bucket_value = (deal.price * 4.20)
     PointBucket.create(user_id: user.id, loyalty_program_id: loyalty_program.id, value: bucket_value)
     ######################################################
 
