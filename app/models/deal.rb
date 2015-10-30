@@ -9,7 +9,7 @@ class Deal < ActiveRecord::Base
 	scope :active, -> {where(active: true)}
 
 	def point_value
-		(price * 4.20).round(0)
+		(price * 4.20).round(2)
 	end
 
 
