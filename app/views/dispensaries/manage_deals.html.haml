@@ -2,7 +2,7 @@
   .row.padding-bottom.border-bottom
     .col-md-3.border-right
       .col-md-4
-        = image_tag(@dispensary.logo, class: 'img-responsive thumbnail') 
+        = image_tag(@dispensary.logo, class: 'img-responsive thumbnail')
       .col-md-8
         %b.lead
           = @dispensary.name
@@ -14,7 +14,7 @@
       .col-md-4.medium-padding-top
         =link_to 'Manage Deals', dispensary_manage_deals_url(@dispensary), class: 'btn btn-pink btn-block'
       .col-md-4.medium-padding-top
-        =link_to 'Manage Rewards', '#', class: 'btn btn-blue btn-block'      
+        =link_to 'Manage Rewards', dispensary_manage_rewards_url(@dispensary), class: 'btn btn-blue btn-block'
     .col-md-3.border-left
       - if @dispensary.redemptions.present?
         %h1.green
@@ -31,12 +31,12 @@
       %br
       %br
       %table.table.table-bordered
+        %th
+          Title
         %th{width: '7%'}
           Deals Made
         %th
           Price
-        %th
-          Title
         %th
           Description
         %th
@@ -46,16 +46,16 @@
         %th
           Active?
         %th
-        %th        
+        %th
         %tbody
           - @deals.each do |d|
             %tr
               %td
-                = @dispensary.deals_made_for(d)                
+                = d.title
+              %td
+                = @dispensary.deals_made_for(d)
               %td
                 = number_to_currency(d.price)
-              %td
-                = d.title
               %td
                 = d.description
               %td
@@ -65,8 +65,8 @@
               %td
                 = d.active
               %td{width: '7%'}
-                = link_to 'Edit', edit_dispensary_deal_url(@dispensary,d), class: 'btn btn-default', remote: true 
-              
+                = link_to 'Edit', edit_dispensary_deal_url(@dispensary,d), class: 'btn btn-default'
+
               %td{width: '7%'}
-                = link_to 'Delete', '#', class: 'btn btn-default'             
-              
+                = link_to 'Delete', '#', class: 'btn btn-default'
+

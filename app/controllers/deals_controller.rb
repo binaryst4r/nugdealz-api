@@ -25,7 +25,7 @@ class DealsController < ApplicationController
     end
   end
 
-  def edit    
+  def edit
     @deal = Deal.find(params[:id])
     @dispensary = @deal.dispensary
     respond_to :js, :html

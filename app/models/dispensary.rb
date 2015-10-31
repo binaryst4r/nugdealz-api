@@ -14,6 +14,8 @@ class Dispensary < ActiveRecord::Base
   has_many :deals, dependent: :destroy
   has_many :redemptions, dependent: :destroy
   has_many :loyalty_programs, dependent: :destroy
+  has_many :dispensary_rewards, dependent: :destroy
+
 
   before_save :link_leafly, if: :leafly_slug_changed?
   geocoded_by :full_address
@@ -31,6 +33,10 @@ class Dispensary < ActiveRecord::Base
 
   def deals_made_for(deal)
     redemptions.where(deal_id: deal.id).count
+  end
+
+  def rewards_redeemed_for(reward)
+    0
   end
 
   def full_address

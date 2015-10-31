@@ -2,7 +2,7 @@
   .row.padding-bottom.border-bottom
     .col-md-3.border-right
       .col-md-4
-        = image_tag(@dispensary.logo, class: 'img-responsive thumbnail') 
+        = image_tag(@dispensary.logo, class: 'img-responsive thumbnail')
       .col-md-8
         %b.lead
           = @dispensary.name
@@ -14,7 +14,7 @@
       .col-md-4.medium-padding-top
         =link_to 'Manage Deals', dispensary_manage_deals_url(@dispensary), class: 'btn btn-pink btn-block'
       .col-md-4.medium-padding-top
-        =link_to 'Manage Rewards', '#', class: 'btn btn-blue btn-block'      
+        =link_to 'Manage Rewards', dispensary_manage_rewards_url(@dispensary), class: 'btn btn-blue btn-block'
     .col-md-3.border-left
       - if @dispensary.redemptions.present?
         %h1.green
@@ -31,7 +31,7 @@
             %span.lead
               = d.title
               = link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_dispensary_deal_url(@dispensary, d), class: 'pull-right'
-            %br          
+            %br
             = d.description
             %br
             =number_to_currency(d.price)
@@ -44,13 +44,13 @@
         %th
           User
         %th
-          Redeemed        
+          Redeemed
         %tbody
           - @dispensary.redemptions.each do |r|
             %tr
               %td{width: '15%'}
                 = r.created_at.strftime("%m/%d/%y at %l:%M %p")
-              
+
               %td
                 = r.user.full_name
               %td

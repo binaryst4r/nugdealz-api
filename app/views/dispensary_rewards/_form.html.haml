@@ -1,0 +1,14 @@
+= form_for [@dispensary, @dispensary_reward] do |f|
+  = f.hidden_field :dispensary_id, value: @dispensary.id
+  .form-group.col-md-12
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group.col-md-12
+    = f.label :price
+    = f.number_field :price, class: 'form-control', step: 0.01, min: 0
+  .form-group.col-md-12
+    = f.check_box :active
+    = f.label :active?
+
+  .col-md-12
+    = f.submit 'Save', class: 'btn btn-green'

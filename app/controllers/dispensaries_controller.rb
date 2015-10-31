@@ -15,6 +15,11 @@ class DispensariesController < ApplicationController
     @deals = @dispensary.deals
   end
 
+  def manage_rewards
+    @dispensary = Dispensary.find(params[:dispensary_id])
+    @rewards = @dispensary.dispensary_rewards
+  end
+
 	def show
 		@dispensary = Dispensary.find(params[:id])
     @deals = @dispensary.deals
@@ -24,7 +29,7 @@ class DispensariesController < ApplicationController
 	def edit
 		@dispensary = Dispensary.find(params[:id])
 	end
-  
+
   def menu
     @dispensary = Dispensary.find(params[:dispensary_id])
     app_id = "b42999e4"
@@ -32,9 +37,9 @@ class DispensariesController < ApplicationController
     slug = @dispensary.leafly_slug
     dispensary = HTTParty.get("http://data.leafly.com/locations/#{slug}", {headers:{"app_id" => app_id, "app_key" => app_key}})
     @specials = dispensary["specialsList"]
-    
+
     respond_to :js
-    
+
   end
 
 	def index
