@@ -8,28 +8,22 @@
         = f.hidden_field :dispensary_id, value: @dispensary.id
         .form-group.col-md-12
           = f.label :title
-          %br/
           = f.text_field :title, class: 'form-control'
         .form-group.col-md-12
           = f.label :description
-          %br/
           = f.text_field :description, class: 'form-control'
         .form-group.col-md-12
           = f.label :fine_print
-          %br/
           = f.text_field :fine_print, class: 'form-control'
         .form-group.col-md-6
           = f.label :price
-          %br/
-          = f.number_field :price, class: 'form-control', step: 0.01
+          = f.number_field :price, class: 'form-control', step: 0.01, min: 0
         .form-group.col-md-6
           = f.label :quantity_available
-          %br/
-          = f.number_field :quantity_available, class: 'form-control'
+          = f.number_field :quantity_available, class: 'form-control', min: 0, step: 1
         .form-group.col-md-6
+          = f.check_box :active
           = f.label :active?
-        .form-group.col-md-6
-          = f.check_box :active, {}, class: 'form-control'
 
         .col-md-12
           = f.submit 'Save', class: 'btn btn-green'
