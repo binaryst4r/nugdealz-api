@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.datetime "updated_at"
     t.decimal  "price",              default: 0.0
     t.boolean  "medical",            default: false
-    t.boolean  "recreational",       default: false
+    t.boolean  "recreational",       default: true
     t.boolean  "active",             default: true
   end
 
@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.boolean  "medical",                default: false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "leafly_slug"
-    t.string   "ein"
-    t.string   "license_number"
-    t.decimal  "balance",                default: 0.0
     t.string   "phone"
     t.string   "logo"
     t.string   "cover_image"
+    t.decimal  "balance",                default: 0.0
+    t.string   "leafly_slug"
+    t.string   "ein"
+    t.string   "license_number"
   end
 
   add_index "dispensaries", ["email"], name: "index_dispensaries_on_email", unique: true
@@ -100,9 +100,6 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.datetime "updated_at"
   end
 
-  add_index "loyalty_programs", ["dispensary_id"], name: "index_loyalty_programs_on_dispensary_id"
-  add_index "loyalty_programs", ["user_id"], name: "index_loyalty_programs_on_user_id"
-
   create_table "nugdealz_rewards", force: true do |t|
     t.string   "title"
     t.string   "price"
@@ -132,9 +129,6 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.datetime "updated_at"
   end
 
-  add_index "point_buckets", ["loyalty_program_id"], name: "index_point_buckets_on_loyalty_program_id"
-  add_index "point_buckets", ["user_id"], name: "index_point_buckets_on_user_id"
-
   create_table "redemptions", force: true do |t|
     t.integer  "user_id"
     t.integer  "deal_id"
@@ -161,6 +155,7 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -171,7 +166,6 @@ ActiveRecord::Schema.define(version: 20150519133147) do
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
     t.string   "stripe_customer_token"
-    t.integer  "sign_in_count",          default: 0
     t.decimal  "nugdealz_points",        default: 0.0
   end
 

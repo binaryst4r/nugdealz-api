@@ -26,7 +26,7 @@ class Dispensary < ActiveRecord::Base
     leafly_dispensary = HTTParty.get("http://data.leafly.com/locations/#{slug}", {headers:{"app_id" => app_id, "app_key" => app_key}})
     self.logo = leafly_dispensary["logo"]
     cover_image = leafly_dispensary["coverPhoto"]
-    
+
   end
 
   def deals_made_for(deal)
@@ -39,7 +39,7 @@ class Dispensary < ActiveRecord::Base
 
   def recreational_or_medical
     if !self.medical.present? && !self.recreational.present?
-      redirect_to :back, notice: 'You must select recreational or medical.'
+      errors.add(:base, "You must select recreational or medical.")
     end
   end
 

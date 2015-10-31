@@ -2,16 +2,16 @@
   #welcome-jumbo.jumbotron
     .row
       .col-md-9.col-md-offset-3.text-left
-        .col-md-12                  
+        .col-md-12
           %h1
             Welcome to
             %br
             nugdealz
           %br
           %p.lead.white
-            Exclusive, premium cannabis deals around you.            
+            Exclusive, premium cannabis deals around you.
             %br
-            Just search and start browsing. #{link_to 'Learn More', how_it_works_url, class: 'pink'} 
+            Just search and start browsing. #{link_to 'Learn More', how_it_works_url, class: 'pink', 'data-no-turbolink' => true}
           / = select_tag :filter, options_for_select(["Recreational", "Medical"], selected: 'recreational'), class: 'form-control welcome-form'
         = form_tag dispensaries_url, method: 'get' do
           .col-md-9
@@ -21,9 +21,9 @@
             = submit_tag 'search', class: 'btn btn-green btn-block'
 %nav
   %center
-    = link_to 'contact us', contact_url, class: 'gray'
+    = link_to 'contact us', contact_url, class: 'gray', 'data-no-turbolink' => true
     |
-    \#{link_to 'dispensary application', new_dispensary_application_url, class: 'gray'}
+    \#{link_to 'dispensary application', new_dispensary_application_url, class: 'gray', 'data-no-turbolink' => true}
     |
     \#{link_to 'work for nugdealz', '#', class: 'gray'}
     %br/
