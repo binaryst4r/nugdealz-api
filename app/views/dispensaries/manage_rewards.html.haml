@@ -15,21 +15,20 @@
         =link_to 'Manage Deals', dispensary_manage_deals_url(@dispensary), class: 'btn btn-pink btn-block'
       .col-md-4.medium-padding-top
         =link_to 'Manage Rewards', dispensary_manage_rewards_url(@dispensary), class: 'btn btn-blue btn-block'
-    .col-md-3.border-left
-      - if @dispensary.redemptions.present?
-        %h1.green
-          = number_to_currency(@dispensary.balance)
-      -else
-        %p.lead
-          No deals made yet
+    .col-md-3.border-left.text-center
+      %h3.no-margin-top
+        Balance
+      %h1.green.no-margin-top
+        = number_to_currency(@dispensary.balance)
+
   .row
     .col-md-12.medium-padding-top
       =link_to '<i class="fa fa-angle-double-left"></i> Back to Dispensary Home'.html_safe, dispensary_url(@dispensary)
     .col-md-10.col-md-offset-1
-      %h2 Manage Rewards
-      = link_to '<i class="fa fa-plus"></i> Add Reward'.html_safe, new_dispensary_dispensary_reward_url(@dispensary), class: 'btn btn-green'
-      %br
-      %br
+      %h2
+        Manage Rewards
+        = link_to '<i class="fa fa-plus"></i> Add Reward'.html_safe, new_dispensary_dispensary_reward_url(@dispensary), class: 'btn btn-green'
+
       %table.table.table-bordered
         %th
           Title

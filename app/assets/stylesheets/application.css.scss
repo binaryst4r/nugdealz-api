@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+.no-margin-top{
+  margin-top: 0px;
+}
 
  ul.unstyled{
   list-style-type: none;

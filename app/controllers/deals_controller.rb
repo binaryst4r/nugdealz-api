@@ -20,7 +20,7 @@ class DealsController < ApplicationController
 
     if @deal.save
       respond_to do |format|
-        format.html {redirect_to dispensary_deals_url(@deal.dispensary)}
+        format.html {redirect_to dispensary_manage_deals_url(@deal.dispensary)}
       end
     end
   end
@@ -44,6 +44,12 @@ class DealsController < ApplicationController
   end
 
   def destroy
+    @deal = Deal.find(params[:id])
+    @deal.destroy
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
