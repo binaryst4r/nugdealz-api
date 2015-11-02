@@ -4,9 +4,9 @@
       .row.deal-well
         .col-md-2.text-center.padding-top
           %p
-            %span.point-value= deal.point_value
-            %br/
-            points
+            %span.point-value= number_to_currency(deal.price)
+          %P            
+            (#{deal.point_value} points)
         .col-md-10.border-left.medium-padding-top
           =image_tag 'highlight.png', class: 'pull-right highlighter hidden'
           %b.lead

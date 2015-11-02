@@ -6,7 +6,7 @@
       .col-md-8
         %b.lead
           = @dispensary.name
-        %p
+        %p.pink
           = @dispensary.full_address
     .col-md-6
       .col-md-4.medium-padding-top
@@ -15,13 +15,11 @@
         =link_to 'Manage Deals', dispensary_manage_deals_url(@dispensary), class: 'btn btn-pink btn-block'
       .col-md-4.medium-padding-top
         =link_to 'Manage Rewards', dispensary_manage_rewards_url(@dispensary), class: 'btn btn-blue btn-block'
-    .col-md-3.border-left
-      - if @dispensary.redemptions.present?
-        %h1.green
-          = number_to_currency(@dispensary.balance)
-      -else
-        %p.lead
-          No deals made yet
+    .col-md-3.border-left.text-center
+      %h3.no-margin-top
+        Balance
+      %h1.green.no-margin-top
+        = number_to_currency(@dispensary.balance)
   .row
     .col-md-4.border-right
       %h2 Active Deals
@@ -36,7 +34,7 @@
             %br
             =number_to_currency(d.price)
     .col-md-6.col-md-offset-1
-      %h2 Incoming Deals #{link_to 'View All', dispensary_manage_deals_url(@dispensary), class: 'btn btn-default pull-right'}
+      %h2 Deal Purchases #{link_to 'View All', dispensary_manage_deals_url(@dispensary), class: 'btn btn-default pull-right'}
       %br
       %table.table.table-bordered
         %th
