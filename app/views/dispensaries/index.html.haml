@@ -18,5 +18,5 @@
           %br          
           %center          
             - d.top_deals.first(3).each do |deal|
-              %span.badge.badge-pink{"data-placement" => "top", "data-toggle" => "tooltip", :title => "#{deal.description}"}
+              %span.badge.badge-pink{"data-placement" => "top", "data-toggle" => "tooltip", :title => "#{deal.description}", "data-no-turbolink" => true}
                 = link_to deal.title, confirm_deal_url(deal: deal.id)

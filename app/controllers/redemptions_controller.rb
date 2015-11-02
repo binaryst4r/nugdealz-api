@@ -32,9 +32,9 @@ class RedemptionsController < ApplicationController
       @redemption.redeemed = true
       respond_to do |format|
         if @redemption.save
-          format.html {redirect_to root_url, notice: 'Hell YESHHHHH'}
+          format.html {redirect_to root_url, notice: 'This deal has been redeemed successfully.'}
         else
-          format.html {redirect_to root_url, notice: 'Hell NOOOOO'}        
+          format.html {redirect_to root_url, notice: 'Something went wrong, please try again.'}        
         end
       end
     end
